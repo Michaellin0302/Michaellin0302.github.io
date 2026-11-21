@@ -672,3 +672,45 @@ footer { margin-top: 72px; border-top: 1px solid var(--line); background: var(--
   .intro { padding: 44px 16px 2px; }
   .now { padding: 48px 16px 12px; }
 }
+
+/* ===== 单页名片版式 v7 ===== */
+.who-grid {
+  display: grid; grid-template-columns: 1.15fr .85fr;
+  gap: 44px; align-items: center;
+  max-width: 920px; margin: 0 auto; text-align: left;
+}
+.who-grid .intro-text { margin: 0 0 14px; }
+.who-grid .intro-chips { justify-content: flex-start; }
+.who-quote {
+  margin: 20px 0; padding: 12px 20px;
+  border-left: 3px solid var(--primary);
+  background: #eff6ff; border-radius: 0 10px 10px 0;
+  color: var(--ink-2); font-size: .95rem; font-weight: 600;
+}
+.who-quote-by {
+  display: block; margin-top: 4px;
+  color: var(--muted); font-size: .8rem; font-weight: 400;
+  font-family: var(--mono);
+}
+.intro .profile-card { animation: none; }
+.skills { max-width: 920px; margin: 44px auto 0; text-align: left; }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 48px; }
+.skills .c-sub { color: var(--muted); font-size: .8rem; margin: 14px 0 0; }
+.contact .link-cards { max-width: 660px; margin: 0 auto; }
+.contact .link-card { padding: 18px 22px; }
+.now .timeline { max-width: 640px; margin: 0 auto; text-align: left; }
+.tl-item.next::before { border-style: dashed; border-color: var(--muted); box-shadow: none; }
+.tl-item.next .when { background: var(--bg); color: var(--muted); border-color: var(--line); }
+.tl-item.next h3 { color: var(--muted); }
+
+@media (max-width: 880px) {
+  .who-grid { grid-template-columns: 1fr; gap: 32px; max-width: 560px; }
+  .profile-card { max-width: none; }
+}
+@media (max-width: 640px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .skills { margin-top: 34px; }
+  .contact .link-card { padding: 14px 16px; }
+}

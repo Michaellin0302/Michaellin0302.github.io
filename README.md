@@ -1,14 +1,14 @@
-# 小林的博客
+# 林志强的奇思妙想
 
-明亮现代风个人主页,纯静态 HTML/CSS,零依赖、零外部资源,托管在 GitHub Pages,桌面/平板/手机自适应。
+明亮现代风单页名片,纯静态 HTML/CSS,零依赖、零外部资源,托管在 GitHub Pages,桌面/平板/手机自适应。
 
 线上地址:<https://blog.midodo.tech>
 
 ## 结构
 
 ```
-├── index.html             首页(居中文字 Logo/导航/打字机大标题/口号/联系邮箱)
-├── about.html             关于(技能进度/时间线/联系)
+├── index.html             主页(打字机大标题/自我介绍/技能进度/正在折腾/找到我)
+├── 404.html               404 页
 ├── assets/
 │   └── style.css          全站样式(含响应式断点)
 ├── CNAME                  自定义域名 blog.midodo.tech

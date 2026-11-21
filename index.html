@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>小林的博客</title>
-  <meta name="description" content="小林的博客 —— 把折腾过的事,做成看得见的东西。">
-  <meta property="og:title" content="小林的博客">
+  <title>林志强的奇思妙想</title>
+  <meta name="description" content="林志强的奇思妙想 —— 把折腾过的事,做成看得见的东西。">
+  <meta name="theme-color" content="#f8fafc">
+  <meta property="og:title" content="林志强的奇思妙想">
   <meta property="og:description" content="把折腾过的事,做成看得见的东西。">
   <meta property="og:url" content="https://blog.midodo.tech/">
   <meta property="og:type" content="website">
@@ -13,13 +14,10 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <!-- 顶部:居中文字 Logo + 导航 -->
+  <!-- 顶部:极简 header —— logo + GitHub,单页不需要导航 -->
   <header class="site-header" id="top">
-    <a class="logo-text" href="index.html">小林的博客</a>
+    <a class="logo-text" href="#top">林志强的奇思妙想</a>
     <nav class="site-nav">
-      <a class="active" href="index.html">首页</a>
-      <a href="about.html">关于我</a>
-      <a href="#contact">联系</a>
       <a class="icon-link" href="https://github.com/Michaellin0302" target="_blank" rel="noopener" aria-label="GitHub">
         <svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
       </a>
@@ -35,67 +33,123 @@
     <a class="scroll-hint" href="#intro" aria-label="向下滚动">▼</a>
   </section>
 
-  <!-- 自我介绍 -->
+  <!-- 自我介绍(合并原关于页) -->
   <section class="intro fade-up d1" id="intro">
-    <p class="intro-text">刚上手编程,正在学 HTML/CSS 和 Git。最大的爱好是<strong>折腾</strong>——从注册 GitHub 到绑上自己的域名,这个站就是折腾过程本身。</p>
-    <div class="intro-chips">
-      <span class="chip">🌱 编程新手</span>
-      <span class="chip">🛠️ 折腾爱好者</span>
-      <span class="chip">🚀 建站进行时</span>
+    <div class="who-grid">
+      <div class="who-text">
+        <p class="kicker">$ whoami</p>
+        <p class="intro-text">你好,我是林志强,一个刚上路的编程学习者,正在学 HTML/CSS 和 Git。最大的爱好是<strong>折腾</strong>——从注册 GitHub 到绑上自己的域名,这个站就是折腾过程本身。</p>
+        <p class="intro-text">这里没有宏大叙事,只有一个个刚出炉的小玩意,和踩过的每一个坑。</p>
+        <blockquote class="who-quote">
+          Talk is cheap. Show me the code.
+          <span class="who-quote-by">— Linus Torvalds</span>
+        </blockquote>
+        <div class="intro-chips">
+          <span class="chip">🌱 编程新手</span>
+          <span class="chip">🛠️ 折腾爱好者</span>
+          <span class="chip">🚀 建站进行时</span>
+        </div>
+      </div>
+      <aside class="profile-card spot">
+        <div class="pc-head">
+          <div class="avatar-xl">林</div>
+          <div>
+            <h3>林志强</h3>
+            <p class="pc-role">编程新手 · 终身学习者 · 折腾爱好者</p>
+          </div>
+        </div>
+        <div class="chips-row">
+          <span class="chip">📍 中国</span>
+          <span class="chip">🎯 目标:持续输出</span>
+          <span class="chip">🌱 正在成长</span>
+        </div>
+        <div class="pc-stats">
+          <div class="pc-stat"><div class="num"><span id="site-age">1</span> 天</div><div class="lbl">站龄 · 自动计算</div></div>
+          <div class="pc-stat"><div class="num">0</div><div class="lbl">外部依赖</div></div>
+          <div class="pc-stat"><div class="num">¥0</div><div class="lbl">托管成本</div></div>
+        </div>
+        <a class="pc-btn" href="https://github.com/Michaellin0302" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          GitHub @Michaellin0302
+        </a>
+      </aside>
+    </div>
+    <div class="skills">
+      <p class="kicker">$ skills --level</p>
+      <div class="skills-grid">
+        <div class="bar-row"><span class="bname">HTML / CSS</span><span class="bar"><i data-w="75%"></i></span><span class="bpct">75%</span></div>
+        <div class="bar-row"><span class="bname">Git / GitHub</span><span class="bar"><i data-w="80%"></i></span><span class="bpct">80%</span></div>
+        <div class="bar-row"><span class="bname">JavaScript</span><span class="bar"><i data-w="60%"></i></span><span class="bpct">60%</span></div>
+        <div class="bar-row"><span class="bname">Python</span><span class="bar"><i data-w="55%"></i></span><span class="bpct">55%</span></div>
+      </div>
+      <p class="c-sub">↑ 百分比是自评的掌握程度,随学习进度更新。</p>
     </div>
   </section>
 
-  <!-- 正在折腾 -->
+  <!-- 折腾时间线 -->
   <section class="now fade-up d2">
-    <p class="kicker">$ tail -n 4 now.log</p>
-    <h2>正在折腾</h2>
-    <p class="now-sub">最近在忙的事,一句话一条。</p>
-    <div class="notes-list">
-      <div class="note-card spot">
-        <span class="n-date">11-21</span>
-        <p class="n-text">注册 GitHub 的当天,就把个人站挂上了 GitHub Pages 🚀</p>
+    <p class="kicker">$ git log --oneline</p>
+    <h2>折腾时间线</h2>
+    <p class="now-sub">都发生在同一天——2026-11-21,折腾的第一天。</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="when">2026-11-21</span>
+        <h3>注册 GitHub,迈出第一步</h3>
+        <p>有了账号,就有了一切的可能。</p>
       </div>
-      <div class="note-card spot">
-        <span class="n-date">11-21</span>
-        <p class="n-text">绑上自己的域名 blog.midodo.tech,HTTPS 证书自动签发,托管费一分钱不用花。</p>
+      <div class="tl-item">
+        <span class="when">2026-11-21</span>
+        <h3>个人站上线 🚀</h3>
+        <p>手写 HTML/CSS 挂上 GitHub Pages,零依赖、零成本。</p>
       </div>
-      <div class="note-card spot">
-        <span class="n-date">11-21</span>
-        <p class="n-text">git push 被连接重置了三次,最后靠 GitHub API 直接写提交救场 💡</p>
+      <div class="tl-item">
+        <span class="when">2026-11-21</span>
+        <h3>绑定自定义域名</h3>
+        <p>blog.midodo.tech 正式启用,HTTPS 证书自动签发。</p>
       </div>
-      <div class="note-card spot">
-        <span class="n-date">11-21</span>
-        <p class="n-text">页面从极简风一路改成明亮现代风,再瘦身成名片页——审美是改出来的 😅</p>
+      <div class="tl-item">
+        <span class="when">2026-11-21</span>
+        <h3>一路改版,定名「林志强的奇思妙想」</h3>
+        <p>极简 → 暗黑霓虹 → 明亮现代 → 单页名片,审美是改出来的 😅</p>
+      </div>
+      <div class="tl-item next">
+        <span class="when">接下来</span>
+        <h3>持续折腾</h3>
+        <p>把奇思妙想一个个做成看得见的东西。</p>
       </div>
     </div>
   </section>
 
-  <!-- 联系方式 -->
+  <!-- 找到我 -->
   <section class="contact fade-up d2" id="contact">
-    <p class="kicker">$ contact --email</p>
-    <h2>联系我</h2>
+    <p class="kicker">$ contact --links</p>
+    <h2>找到我</h2>
     <p class="contact-sub">想交流技术、聊聊建站,或者单纯打个招呼,都可以。</p>
-    <a class="mail-card" href="mailto:972053745@qq.com">
-      <span class="mail-ico">✉️</span>
-      <span>972053745@qq.com</span>
-    </a>
-    <p class="contact-note">点击即可直接发邮件</p>
+    <div class="link-cards">
+      <a class="link-card" href="mailto:972053745@qq.com">
+        <span class="lc-icon">✉️</span>
+        <span>邮箱<br><span class="lc-sub">972053745@qq.com</span></span>
+      </a>
+      <a class="link-card" href="https://github.com/Michaellin0302" target="_blank" rel="noopener">
+        <span class="lc-icon">🐙</span>
+        <span>GitHub<br><span class="lc-sub">github.com/Michaellin0302</span></span>
+      </a>
+    </div>
+    <p class="contact-note">点击任意卡片即可直达</p>
   </section>
 
   <!-- 页脚 -->
   <footer>
     <div class="container">
       <div class="foot-center">
-        <a class="logo-text sm" href="#top">小林的博客</a>
+        <a class="logo-text sm" href="#top">林志强的奇思妙想</a>
         <p class="foot-slogan">记录 · 折腾 · 分享</p>
         <nav class="foot-links">
-          <a href="index.html">首页</a>
-          <a href="about.html">关于我</a>
           <a href="mailto:972053745@qq.com">邮箱</a>
           <a href="https://github.com/Michaellin0302" target="_blank" rel="noopener">GitHub</a>
         </nav>
         <div class="foot-bottom center">
-          <span>© 2026 小林的博客 · Since 2026-11</span>
+          <span>© 2026 林志强 · Since 2026-11</span>
           <a href="#top">回到顶部 ↑</a>
         </div>
       </div>
@@ -109,7 +163,7 @@
       /* 打字机大标题(循环) */
       var el = document.getElementById("typeline");
       if (el) {
-        var lines = ["你好,我是小林。", "欢迎来到我的小角落。", "一起折腾,一起成长。"];
+        var lines = ["你好,我是林志强。", "左手奇思,右手妙想。", "1% 灵感,99% 折腾。", "又改版了,这次是认真的。", "不会就学,学了就做。", "灵感 → 代码 → 上线。"];
         if (reduced) { el.textContent = lines[0]; }
         else {
           var wi = 0, ci = 0, del = false;
@@ -124,6 +178,13 @@
         }
       }
 
+      /* 站龄自动计算(Since 2026-11-21) */
+      var ageEl = document.getElementById("site-age");
+      if (ageEl) {
+        var since = new Date(2026, 10, 21);
+        ageEl.textContent = Math.max(1, Math.floor((Date.now() - since.getTime()) / 864e5) + 1);
+      }
+
       /* 卡片聚光灯跟随 */
       document.querySelectorAll(".spot").forEach(function (node) {
         node.addEventListener("mousemove", function (e) {
@@ -132,6 +193,22 @@
           node.style.setProperty("--my", (e.clientY - r.top) + "px");
         });
       });
+
+      /* 技能进度条(进入视口时填充) */
+      var bars = document.querySelectorAll(".bar i");
+      if (reduced || !("IntersectionObserver" in window)) {
+        bars.forEach(function (b) { b.style.width = b.dataset.w; });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            en.target.style.width = en.target.dataset.w;
+            io.unobserve(en.target);
+          }
+        });
+      }, { threshold: .4 });
+      bars.forEach(function (b) { io.observe(b); });
     })();
   </script>
 </body>
