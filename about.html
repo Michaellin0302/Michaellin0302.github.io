@@ -23,10 +23,15 @@
     <section class="post">
       <p class="kicker fade-up">$ cat about.md</p>
       <div class="about-head fade-up d1">
-        <div class="avatar">M</div>
+        <div class="avatar-xl">M</div>
         <div>
           <h1>Michaellin0302</h1>
           <p class="meta">开发者 / 终身学习者 / 折腾爱好者</p>
+          <div class="chips-row">
+            <span class="chip">📍 中国</span>
+            <span class="chip">🎯 目标:持续输出</span>
+            <span class="chip">📮 通过 GitHub 联系</span>
+          </div>
         </div>
       </div>
 
@@ -36,16 +41,45 @@
           <p>Talk is cheap. Show me the code. — Linus Torvalds</p>
         </blockquote>
 
+        <h2>技能进度</h2>
+        <div class="bar-row"><span class="bname">HTML / CSS</span><span class="bar"><i data-w="75%"></i></span><span class="bpct">75%</span></div>
+        <div class="bar-row"><span class="bname">Git / GitHub</span><span class="bar"><i data-w="80%"></i></span><span class="bpct">80%</span></div>
+        <div class="bar-row"><span class="bname">JavaScript</span><span class="bar"><i data-w="60%"></i></span><span class="bpct">60%</span></div>
+        <div class="bar-row"><span class="bname">Python</span><span class="bar"><i data-w="55%"></i></span><span class="bpct">55%</span></div>
+
+        <h2>折腾时间线</h2>
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="when">2026-11</span>
+            <h3>博客上线 🚀</h3>
+            <p>用 GitHub Pages + 手写 HTML/CSS 搭起这个站,零成本、零依赖。</p>
+          </div>
+          <div class="tl-item">
+            <span class="when">2026-11</span>
+            <h3>绑定自定义域名</h3>
+            <p>在阿里云配置解析,my.midodo.tech 正式启用,HTTPS 证书自动签发。</p>
+          </div>
+          <div class="tl-item">
+            <span class="when">接下来</span>
+            <h3>持续更新</h3>
+            <p>把学习笔记、踩坑记录都搬上来,让这里越来越厚。</p>
+          </div>
+        </div>
+
         <h2>找到我</h2>
         <div class="link-cards">
           <a class="link-card" href="https://github.com/Michaellin0302" target="_blank" rel="noopener">
             <span class="lc-icon">@</span>
             <span>GitHub<br><span class="lc-sub">github.com/Michaellin0302</span></span>
           </a>
+          <a class="link-card" href="index.html">
+            <span class="lc-icon">📚</span>
+            <span>全部文章<br><span class="lc-sub">从第一篇开始读</span></span>
+          </a>
         </div>
 
         <h2>这个博客</h2>
-        <p>纯手写 HTML/CSS,无框架、零依赖,托管在 GitHub Pages 上,主题是暗色霓虹风。写新文章只需要一个文本编辑器。</p>
+        <p>纯手写 HTML/CSS,无框架、零依赖,托管在 GitHub Pages 上,主题是暗色霓虹风(自研)。写新文章只需要一个文本编辑器。</p>
       </div>
 
       <a class="back-home" href="index.html">← cd ..</a>
@@ -53,10 +87,48 @@
   </main>
 
   <footer>
-    <div class="container foot-inner">
-      <span>© 2026 Michaellin0302 · Powered by <b>GitHub Pages</b></span>
-      <span>Made with <span class="heart">♥</span> &amp; vanilla HTML</span>
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-col">
+          <a class="logo" href="index.html"><span>michaellin0302</span></a>
+          <p>简洁 · 极客 · 记录 —— 用代码和文字理解世界。纯静态、零依赖,托管在 GitHub Pages。</p>
+        </div>
+        <div class="foot-col">
+          <h4>导航</h4>
+          <a href="index.html">文章列表</a>
+          <a href="about.html">关于我</a>
+          <a href="https://github.com/Michaellin0302" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="foot-col">
+          <h4>最新文章</h4>
+          <a href="posts/hello-world.html">Hello, World! 博客开通</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 Michaellin0302 · Powered by <b>GitHub Pages</b></span>
+        <span>Made with <span class="heart">♥</span> &amp; vanilla HTML</span>
+      </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var bars = document.querySelectorAll(".bar i");
+      if (reduced || !("IntersectionObserver" in window)) {
+        bars.forEach(function (b) { b.style.width = b.dataset.w; });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            en.target.style.width = en.target.dataset.w;
+            io.unobserve(en.target);
+          }
+        });
+      }, { threshold: .4 });
+      bars.forEach(function (b) { io.observe(b); });
+    })();
+  </script>
 </body>
 </html>

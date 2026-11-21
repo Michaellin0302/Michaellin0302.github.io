@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+  <div id="progress"></div>
   <div class="grid-bg"></div>
   <div class="glow cyan"></div>
   <div class="glow purple"></div>
@@ -21,9 +22,11 @@
 
   <main class="container">
     <article class="post">
-      <p class="kicker fade-up">$ cat posts/hello-world.md</p>
-      <h1 class="fade-up d1">Hello, World! 博客开通</h1>
-      <div class="meta fade-up d1">2026-11-21<span class="sep">|</span>Michaellin0302<span class="sep">|</span>约 2 分钟</div>
+      <div class="post-hero fade-up">
+        <p class="kicker">$ cat posts/hello-world.md</p>
+        <h1>Hello, World! 博客开通</h1>
+        <div class="meta">2026-11-21<span class="sep">|</span>Michaellin0302<span class="sep">|</span>约 2 分钟<span class="sep">|</span>#建站 #GitHub Pages</div>
+      </div>
 
       <div class="post-body fade-up d2">
         <p>博客正式开通了 🎉</p>
@@ -31,7 +34,7 @@
         <h2>这个站是怎么搭的</h2>
         <p>没有任何框架,纯手写静态 HTML + CSS,托管在 <strong>GitHub Pages</strong> 上,完全免费:</p>
         <ul>
-          <li>域名:<code>michaellin0302.github.io</code>(GitHub 白送)</li>
+          <li>域名:<code>my.midodo.tech</code>(已有的 midodo.tech 加了一条解析)</li>
           <li>服务器:GitHub Pages(白送)</li>
           <li>HTTPS 证书:Let's Encrypt 自动签发(还是白送)</li>
           <li>代码:<code>git push</code> 即发布,约 1 分钟生效</li>
@@ -40,7 +43,7 @@
         <h2>以后怎么写新文章</h2>
         <ol>
           <li>复制 <code>posts/hello-world.html</code> 改名,比如 <code>posts/my-first-post.html</code>,修改标题、日期和正文</li>
-          <li>在 <code>index.html</code> 的文章卡片里复制一块 <code>&lt;a class="card"&gt;</code> 并修改</li>
+          <li>在 <code>index.html</code> 的文章卡片里复制一块 <code>&lt;a class="card-wrap"&gt;</code> 并修改</li>
           <li>提交推送,自动上线:</li>
         </ol>
         <div class="code-block">
@@ -62,10 +65,42 @@ git push</code></pre>
   </main>
 
   <footer>
-    <div class="container foot-inner">
-      <span>© 2026 Michaellin0302 · Powered by <b>GitHub Pages</b></span>
-      <span>Made with <span class="heart">♥</span> &amp; vanilla HTML</span>
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-col">
+          <a class="logo" href="../index.html"><span>michaellin0302</span></a>
+          <p>简洁 · 极客 · 记录 —— 用代码和文字理解世界。纯静态、零依赖,托管在 GitHub Pages。</p>
+        </div>
+        <div class="foot-col">
+          <h4>导航</h4>
+          <a href="../index.html">文章列表</a>
+          <a href="../about.html">关于我</a>
+          <a href="https://github.com/Michaellin0302" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="foot-col">
+          <h4>最新文章</h4>
+          <a href="hello-world.html">Hello, World! 博客开通</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 Michaellin0302 · Powered by <b>GitHub Pages</b></span>
+        <span>Made with <span class="heart">♥</span> &amp; vanilla HTML</span>
+      </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var bar = document.getElementById("progress");
+      if (!bar) return;
+      function update() {
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+      }
+      addEventListener("scroll", update, { passive: true });
+      update();
+    })();
+  </script>
 </body>
 </html>
