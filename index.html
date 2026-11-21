@@ -4,7 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>小林的博客</title>
-  <meta name="description" content="小林的博客 —— 把折腾过的事,写成看得懂的文字。">
+  <meta name="description" content="小林的博客 —— 把折腾过的事,做成看得见的东西。">
+  <meta property="og:title" content="小林的博客">
+  <meta property="og:description" content="把折腾过的事,做成看得见的东西。">
+  <meta property="og:url" content="https://blog.midodo.tech/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -25,9 +30,44 @@
   <section class="hero">
     <div class="hero-inner fade-up">
       <h1 class="hero-title"><span id="typeline"></span><span class="cursor"></span></h1>
-      <p class="hero-slogan">把折腾过的事,写成看得懂的文字。</p>
+      <p class="hero-slogan">把折腾过的事,做成看得见的东西。</p>
     </div>
-    <a class="scroll-hint" href="#contact" aria-label="向下滚动">▼</a>
+    <a class="scroll-hint" href="#intro" aria-label="向下滚动">▼</a>
+  </section>
+
+  <!-- 自我介绍 -->
+  <section class="intro fade-up d1" id="intro">
+    <p class="intro-text">刚上手编程,正在学 HTML/CSS 和 Git。最大的爱好是<strong>折腾</strong>——从注册 GitHub 到绑上自己的域名,这个站就是折腾过程本身。</p>
+    <div class="intro-chips">
+      <span class="chip">🌱 编程新手</span>
+      <span class="chip">🛠️ 折腾爱好者</span>
+      <span class="chip">🚀 建站进行时</span>
+    </div>
+  </section>
+
+  <!-- 正在折腾 -->
+  <section class="now fade-up d2">
+    <p class="kicker">$ tail -n 4 now.log</p>
+    <h2>正在折腾</h2>
+    <p class="now-sub">最近在忙的事,一句话一条。</p>
+    <div class="notes-list">
+      <div class="note-card spot">
+        <span class="n-date">11-21</span>
+        <p class="n-text">注册 GitHub 的当天,就把个人站挂上了 GitHub Pages 🚀</p>
+      </div>
+      <div class="note-card spot">
+        <span class="n-date">11-21</span>
+        <p class="n-text">绑上自己的域名 blog.midodo.tech,HTTPS 证书自动签发,托管费一分钱不用花。</p>
+      </div>
+      <div class="note-card spot">
+        <span class="n-date">11-21</span>
+        <p class="n-text">git push 被连接重置了三次,最后靠 GitHub API 直接写提交救场 💡</p>
+      </div>
+      <div class="note-card spot">
+        <span class="n-date">11-21</span>
+        <p class="n-text">页面从极简风一路改成明亮现代风,再瘦身成名片页——审美是改出来的 😅</p>
+      </div>
+    </div>
   </section>
 
   <!-- 联系方式 -->
@@ -55,7 +95,7 @@
           <a href="https://github.com/Michaellin0302" target="_blank" rel="noopener">GitHub</a>
         </nav>
         <div class="foot-bottom center">
-          <span>© 2026 小林的博客 · Powered by <b>GitHub Pages</b></span>
+          <span>© 2026 小林的博客 · Since 2026-11 · Powered by <b>GitHub Pages</b></span>
           <a href="#top">回到顶部 ↑</a>
         </div>
       </div>
@@ -66,19 +106,32 @@
     (function () {
       var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      /* 打字机大标题 */
+      /* 打字机大标题(循环) */
       var el = document.getElementById("typeline");
-      var text = "你好,我是小林。";
       if (el) {
-        if (reduced) { el.textContent = text; }
+        var lines = ["你好,我是小林。", "欢迎来到我的小角落。", "一起折腾,一起成长。"];
+        if (reduced) { el.textContent = lines[0]; }
         else {
-          var i = 0;
+          var wi = 0, ci = 0, del = false;
           (function tick() {
-            el.textContent = text.slice(0, i);
-            if (i < text.length) { i++; setTimeout(tick, 160); }
+            var w = lines[wi];
+            el.textContent = w.slice(0, ci);
+            if (!del && ci < w.length) { ci++; setTimeout(tick, 150); }
+            else if (!del) { del = true; setTimeout(tick, 2200); }
+            else if (ci > 0) { ci--; setTimeout(tick, 40); }
+            else { del = false; wi = (wi + 1) % lines.length; setTimeout(tick, 350); }
           })();
         }
       }
+
+      /* 卡片聚光灯跟随 */
+      document.querySelectorAll(".spot").forEach(function (node) {
+        node.addEventListener("mousemove", function (e) {
+          var r = node.getBoundingClientRect();
+          node.style.setProperty("--mx", (e.clientX - r.left) + "px");
+          node.style.setProperty("--my", (e.clientY - r.top) + "px");
+        });
+      });
     })();
   </script>
 </body>

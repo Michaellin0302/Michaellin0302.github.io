@@ -658,3 +658,17 @@ footer { margin-top: 72px; border-top: 1px solid var(--line); background: var(--
   .bar-row .bname { width: 88px; font-size: .8rem; }
   .about-head { gap: 18px; }
 }
+
+/* ===== 首页 v6:自我介绍 + 正在折腾 ===== */
+.intro { padding: 58px 24px 6px; text-align: center; }
+.intro-text { max-width: 52ch; margin: 0 auto; color: var(--ink-2); font-size: 1.02rem; }
+.intro-chips { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+.now { padding: 64px 24px 22px; text-align: center; }
+.now h2 { margin: 0; font-size: 1.6rem; font-weight: 800; letter-spacing: -.3px; }
+.now .now-sub { color: var(--muted); margin: 10px 0 26px; font-size: .95rem; }
+.now .notes-list { max-width: 640px; margin: 0 auto; text-align: left; }
+
+@media (max-width: 480px) {
+  .intro { padding: 44px 16px 2px; }
+  .now { padding: 48px 16px 12px; }
+}
