@@ -2,7 +2,7 @@
 
 明亮现代风单页名片,纯静态 HTML/CSS,零依赖、零外部资源,托管在 GitHub Pages,桌面/平板/手机自适应。
 
-线上地址:<https://blog.midodo.tech>
+线上地址:<https://midodo.tech>
 
 ## 结构
 
@@ -10,8 +10,9 @@
 ├── index.html             主页(打字机大标题/自我介绍/技能进度/正在折腾/找到我)
 ├── 404.html               404 页
 ├── assets/
-│   └── style.css          全站样式(含响应式断点)
-├── CNAME                  自定义域名 blog.midodo.tech
+│   ├── style.css          全站样式(含响应式断点)
+│   └── wechat-qr.png      微信二维码
+├── CNAME                  自定义域名 midodo.tech
 └── README.md
 ```
 

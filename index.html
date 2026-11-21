@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#f8fafc">
   <meta property="og:title" content="林志强的奇思妙想">
   <meta property="og:description" content="把折腾过的事,做成看得见的东西。">
-  <meta property="og:url" content="https://blog.midodo.tech/">
+  <meta property="og:url" content="https://midodo.tech/">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
   <link rel="stylesheet" href="assets/style.css">
@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="chips-row">
-          <span class="chip">📍 中国</span>
+          <span class="chip">📍 福建福州</span>
           <span class="chip">🎯 目标:持续输出</span>
           <span class="chip">🌱 正在成长</span>
         </div>
@@ -86,36 +86,16 @@
     </div>
   </section>
 
-  <!-- 折腾时间线 -->
+  <!-- 第一天 -->
   <section class="now fade-up d2">
-    <p class="kicker">$ git log --oneline</p>
-    <h2>折腾时间线</h2>
-    <p class="now-sub">都发生在同一天——2026-11-21,折腾的第一天。</p>
+    <p class="kicker">$ git init</p>
+    <h2>第一天</h2>
+    <p class="now-sub">一切,从这里开始。</p>
     <div class="timeline">
       <div class="tl-item">
         <span class="when">2026-11-21</span>
-        <h3>注册 GitHub,迈出第一步</h3>
-        <p>有了账号,就有了一切的可能。</p>
-      </div>
-      <div class="tl-item">
-        <span class="when">2026-11-21</span>
-        <h3>个人站上线 🚀</h3>
-        <p>手写 HTML/CSS 挂上 GitHub Pages,零依赖、零成本。</p>
-      </div>
-      <div class="tl-item">
-        <span class="when">2026-11-21</span>
-        <h3>绑定自定义域名</h3>
-        <p>blog.midodo.tech 正式启用,HTTPS 证书自动签发。</p>
-      </div>
-      <div class="tl-item">
-        <span class="when">2026-11-21</span>
-        <h3>一路改版,定名「林志强的奇思妙想」</h3>
-        <p>极简 → 暗黑霓虹 → 明亮现代 → 单页名片,审美是改出来的 😅</p>
-      </div>
-      <div class="tl-item next">
-        <span class="when">接下来</span>
-        <h3>持续折腾</h3>
-        <p>把奇思妙想一个个做成看得见的东西。</p>
+        <h3>注册 GitHub,上线个人博客 🚀</h3>
+        <p>折腾的第一天——从注册账号到个人站上线,同一天完成。</p>
       </div>
     </div>
   </section>
@@ -130,31 +110,37 @@
         <span class="lc-icon">✉️</span>
         <span>邮箱<br><span class="lc-sub">972053745@qq.com</span></span>
       </a>
-      <a class="link-card" href="https://github.com/Michaellin0302" target="_blank" rel="noopener">
-        <span class="lc-icon">🐙</span>
-        <span>GitHub<br><span class="lc-sub">github.com/Michaellin0302</span></span>
-      </a>
+      <div class="link-card qr-card" id="qr-card" role="button" tabindex="0" aria-label="查看微信二维码大图">
+        <img class="lc-qr" src="assets/wechat-qr.png" alt="微信二维码" loading="lazy">
+        <span class="qr-label">微信<br><span class="lc-sub">扫码加我 · 点击看大图</span></span>
+      </div>
     </div>
     <p class="contact-note">点击任意卡片即可直达</p>
   </section>
 
-  <!-- 页脚 -->
+  <!-- 页脚:终端加载现场 -->
   <footer>
-    <div class="container">
-      <div class="foot-center">
-        <a class="logo-text sm" href="#top">林志强的奇思妙想</a>
-        <p class="foot-slogan">记录 · 折腾 · 分享</p>
-        <nav class="foot-links">
-          <a href="mailto:972053745@qq.com">邮箱</a>
-          <a href="https://github.com/Michaellin0302" target="_blank" rel="noopener">GitHub</a>
-        </nav>
-        <div class="foot-bottom center">
-          <span>© 2026 林志强 · Since 2026-11</span>
-          <a href="#top">回到顶部 ↑</a>
+    <div class="foot-term reveal">
+      <div class="ft-bar">
+        <span class="ft-dot r"></span><span class="ft-dot y"></span><span class="ft-dot g"></span>
+        <span class="ft-title">zlin@fuzhou:~/dream</span>
+      </div>
+      <div class="ft-body">
+        <p class="ft-line"><span class="ft-prompt">$</span> <span id="ft-typeline"></span><span class="ft-cursor"></span></p>
+        <div class="ft-log" id="ft-log"></div>
+        <div class="ft-progress-row">
+          <div class="ft-progress"><i id="ft-bar"></i></div>
+          <span class="ft-pct" id="ft-pct">0%</span>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- 二维码灯箱 -->
+  <div class="lightbox" id="qr-lightbox" role="dialog" aria-modal="true" aria-label="微信二维码大图">
+    <img class="lightbox-img" src="assets/wechat-qr.png" alt="微信二维码大图">
+    <p class="lightbox-tip">微信扫码加我 · 点击任意处或按 Esc 关闭</p>
+  </div>
 
   <script>
     (function () {
@@ -183,6 +169,112 @@
       if (ageEl) {
         var since = new Date(2026, 10, 21);
         ageEl.textContent = Math.max(1, Math.floor((Date.now() - since.getTime()) / 864e5) + 1);
+      }
+
+      /* 二维码灯箱(点卡片开,点任意处/Esc 关) */
+      var lightbox = document.getElementById("qr-lightbox");
+      var qrCard = document.getElementById("qr-card");
+      if (lightbox && qrCard) {
+        var openQr = function () { lightbox.classList.add("show"); };
+        var closeQr = function () { lightbox.classList.remove("show"); };
+        qrCard.addEventListener("click", openQr);
+        qrCard.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openQr(); }
+        });
+        lightbox.addEventListener("click", closeQr);
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeQr();
+        });
+      }
+
+      /* 滚动入场(.reveal 进入视口时浮现) */
+      var revs = document.querySelectorAll(".reveal");
+      if (reduced || !("IntersectionObserver" in window)) {
+        revs.forEach(function (n) { n.classList.add("visible"); });
+      } else {
+        var revIo = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) {
+              en.target.classList.add("visible");
+              revIo.unobserve(en.target);
+            }
+          });
+        }, { threshold: .2 });
+        revs.forEach(function (n) { revIo.observe(n); });
+      }
+
+      /* 页脚终端:敲命令 → 滚日志 → 进度卡 99% → 清屏,无限循环 */
+      var ftType = document.getElementById("ft-typeline");
+      var ftLog = document.getElementById("ft-log");
+      var ftBar = document.getElementById("ft-bar");
+      var ftPct = document.getElementById("ft-pct");
+      if (ftType && ftLog && ftBar && ftPct) {
+        if (reduced) {
+          ftType.textContent = "折腾,未完待续";
+          ftLog.innerHTML = '<p><span class="ft-time">--:--:--</span> 折腾永不停止 <b class="ft-ok">✓</b></p>';
+          ftBar.style.width = "99%";
+          ftPct.textContent = "99%";
+        } else {
+          var cmds = ["启动 下一个奇思妙想", "make dream", "git push origin 折腾", "deploy --to=现实"];
+          var logPool = ["灵感捕获完成", "编译一次通过", "Bug 修了又长,再修", "正在部署到现实", "域名解析成功", "咖啡余量充足", "奇思 +1", "妙想 +1"];
+          var ci = 0;
+          var pad2 = function (n) { return (n < 10 ? "0" : "") + n; };
+          var ts = function () {
+            var d = new Date();
+            return pad2(d.getHours()) + ":" + pad2(d.getMinutes()) + ":" + pad2(d.getSeconds());
+          };
+          var typeCmd = function (cmd, done) {
+            var i = 0;
+            (function tick() {
+              ftType.textContent = cmd.slice(0, ++i);
+              if (i < cmd.length) { setTimeout(tick, 70); } else { setTimeout(done, 350); }
+            })();
+          };
+          var addLog = function (text, state) {
+            var p = document.createElement("p");
+            p.innerHTML = '<span class="ft-time">' + ts() + '</span> ' + text +
+              ' <b class="' + (state === "ok" ? "ft-ok" : "ft-run") + '">' + (state === "ok" ? "✓" : "…") + "</b>";
+            ftLog.appendChild(p);
+          };
+          var runProgress = function (done) {
+            var v = 0;
+            var iv = setInterval(function () {
+              v += Math.random() * 7 + 2;
+              if (v >= 99) {
+                clearInterval(iv);
+                ftBar.style.width = "99%";
+                ftPct.textContent = "99%";
+                ftBar.parentNode.classList.add("stuck");
+                done();
+              } else {
+                ftBar.style.width = v + "%";
+                ftPct.textContent = Math.floor(v) + "%";
+              }
+            }, 120);
+          };
+          var cycle = function () {
+            ftLog.innerHTML = "";
+            ftBar.style.width = "0%";
+            ftBar.parentNode.classList.remove("stuck");
+            ftPct.textContent = "0%";
+            typeCmd(cmds[ci % cmds.length], function () {
+              var pool = logPool.slice();
+              var picks = [];
+              for (var k = 0; k < 3; k++) {
+                picks.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+              }
+              addLog(picks[0], "ok");
+              setTimeout(function () { addLog(picks[1], "ok"); }, 420);
+              setTimeout(function () {
+                addLog(picks[2], "run");
+                runProgress(function () {
+                  setTimeout(function () { ci++; cycle(); }, 1800);
+                });
+              }, 840);
+            });
+          };
+          cycle();
+        }
       }
 
       /* 卡片聚光灯跟随 */
