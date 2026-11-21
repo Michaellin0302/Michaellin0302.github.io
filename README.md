@@ -2,7 +2,7 @@
 
 明亮现代风个人博客,纯静态 HTML/CSS,零依赖、零外部资源,托管在 GitHub Pages。
 
-线上地址:<https://my.midodo.tech>
+线上地址:<https://blog.midodo.tech>
 
 ## 写新文章
 
@@ -29,6 +29,6 @@ git push
 │   └── custom-domain.html    ⑤ 绑定域名
 ├── assets/
 │   └── style.css          明亮现代风全站样式
-├── CNAME                  自定义域名 my.midodo.tech
+├── CNAME                  自定义域名 blog.midodo.tech
 └── README.md
 ```

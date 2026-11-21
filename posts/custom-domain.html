@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>绑上自己的域名:my.midodo.tech · Michaellin0302</title>
+  <title>绑上自己的域名:blog.midodo.tech · Michaellin0302</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -26,17 +26,17 @@
     <article class="post">
       <div class="post-hero fade-up">
         <p class="kicker">$ cat posts/custom-domain.md</p>
-        <h1>绑上自己的域名:my.midodo.tech</h1>
+        <h1>绑上自己的域名:blog.midodo.tech</h1>
         <div class="meta">2026-11-21<span class="sep">|</span>Michaellin0302<span class="sep">|</span>约 4 分钟<span class="sep">|</span>系列:建站记 · 第 5 篇</div>
       </div>
 
       <div class="post-body fade-up d2">
-        <p><code>michaellin0302.github.io</code> 虽然免费,但又长又难记。这篇记录我怎么把已有域名 <code>midodo.tech</code> 的子域名 <code>my.midodo.tech</code> 绑到博客上——全程只用了一条 DNS 命令。</p>
+        <p><code>michaellin0302.github.io</code> 虽然免费,但又长又难记。这篇记录我怎么把已有域名 <code>midodo.tech</code> 绑到博客上——过程比预想的曲折,还挖出 GitHub 一个深坑,但 DNS 始终只需要一条命令。</p>
 
         <h2>主域名 vs 子域名:解析方式不一样</h2>
         <p>绑域名之前要先搞清两种情况:</p>
         <ul>
-          <li><strong>子域名</strong>(如 <code>my.midodo.tech</strong>):加一条 <strong>CNAME 记录</strong>指向 <code>用户名.github.io</code> 即可,最简单</li>
+          <li><strong>子域名</strong>(如 <code>blog.midodo.tech</code>):加一条 <strong>CNAME 记录</strong>指向 <code>用户名.github.io</code> 即可,最简单</li>
           <li><strong>主域名</strong>(如 <code>midodo.tech</strong>):不能用 CNAME(DNS 规范限制),要加 <strong>4 条 A 记录</strong>指向 GitHub Pages 的固定 IP:<code>185.199.108.153</code>、<code>185.199.109.153</code>、<code>185.199.110.153</code>、<code>185.199.111.153</code></li>
         </ul>
         <div class="tip-box blue"><span>💡</span><span>我选了子域名方案:一条记录搞定,主域名的其他解析(邮箱等)完全不受影响。</span></div>
@@ -52,17 +52,19 @@
   --Value michaellin0302.github.io \
   --TTL 600</code></pre>
         </div>
-        <p>返回一个 <code>RecordId</code> 就成功了。用 <code>nslookup my.midodo.tech</code> 验证,能解析到 GitHub 的 IP 就说明 DNS 生效。</p>
+        <p>返回一个 <code>RecordId</code> 就成功了。用 <code>nslookup blog.midodo.tech</code> 验证,能解析到 GitHub 的 IP 就说明 DNS 生效。</p>
 
         <h2>GitHub 侧两步</h2>
         <ol>
-          <li><strong>仓库根目录加一个 CNAME 文件</strong>,内容一行:<code>my.midodo.tech</code></li>
+          <li><strong>仓库根目录加一个 CNAME 文件</strong>,内容一行:<code>blog.midodo.tech</code></li>
           <li><strong>仓库 Settings → Pages 里填上自定义域名</strong>(或者用 API:<code>PUT /repos/用户名/仓库/pages</code>)</li>
         </ol>
         <p>之后 GitHub 会自动做两件事:把 <code>github.io</code> 地址 301 重定向到新域名;为你的域名自动签发 Let's Encrypt HTTPS 证书。</p>
 
-        <h2>唯一需要耐心的地方</h2>
-        <p>DNS 生效很快(TTL 600 也就是 10 分钟内),但 <strong>HTTPS 证书签发是异步的</strong>,一般 10~30 分钟,偶尔要一两个小时。判断方法:证书透明度日志 crt.sh 查不到你的域名 = 还没签好;浏览器访问报 TLS 握手失败多半也是这个原因——等等就好,无需任何操作。</p>
+        <h2>真正的坑:域名被卡死怎么办</h2>
+        <p>DNS 十分钟就生效了,但 <code>my</code> 的 HTTPS 证书等了两个多小时还没签下来:证书透明度日志(crt.sh)里查无此证,境外访问 TLS 握手直接被重置,GitHub 配置里的 <code>https_enforced</code> 也迟迟不翻转——这不是"慢",是签发流水线被反复改配置卡死了。</p>
+        <p>解法出乎意料地简单:<strong>换一个全新的子域名</strong>。加一条 <code>blog</code> 的 CNAME,把仓库 CNAME 文件和 Pages 设置都改成它——十分钟后证书签发成功,全球多地拨测全部 200。管线本身没问题,只是 <code>my</code> 这个名字在 GitHub 侧留下了僵死状态。</p>
+        <div class="tip-box green"><span>💡</span><span>教训:绑定域名尽量一次到位,别反复增删;如果证书超过一小时不签发,别死等,换个子域名立刻解决。</span></div>
 
         <h2>成本结算</h2>
         <ul>
@@ -71,7 +73,7 @@
           <li>托管 + 证书:GitHub Pages 白送</li>
         </ul>
         <blockquote>
-          <p>解析生效的那一刻,输入 my.midodo.tech 看到自己的博客,成就感拉满。</p>
+          <p>输入 blog.midodo.tech 看到自己的博客的那一刻,成就感拉满。</p>
         </blockquote>
         <p>—— 建站记系列到此完结,后续的折腾会写成新的系列。</p>
       </div>
@@ -89,7 +91,7 @@
       <div class="foot-grid">
         <div class="foot-col">
           <a class="logo" href="../index.html"><span class="logo-dot">M</span><span>michaellin0302</span></a>
-          <p>简洁 · 记录 · 成长 —— 用代码和文字理解世界。纯静态、零依赖,托管在 GitHub Pages,域名 my.midodo.tech。</p>
+          <p>简洁 · 记录 · 成长 —— 用代码和文字理解世界。纯静态、零依赖,托管在 GitHub Pages,域名 blog.midodo.tech。</p>
         </div>
         <div class="foot-col">
           <h4>站点导航</h4>
