@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用 GitHub Pages 白嫖第一个网站 · Michaellin0302</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <div id="progress"></div>
+  <!-- 导航栏 -->
+  <header class="topbar" id="top">
+    <div class="container">
+      <a class="logo" href="../index.html"><span class="logo-dot">M</span><span>michaellin0302</span></a>
+      <a href="../index.html">首页</a>
+      <a class="active" href="../index.html#posts">文章</a>
+      <a href="../index.html#essays">随笔</a>
+      <a href="../about.html">关于我</a>
+      <a class="icon-link" href="https://github.com/Michaellin0302" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="post">
+      <div class="post-hero fade-up">
+        <p class="kicker">$ cat posts/first-site.md</p>
+        <h1>用 GitHub Pages 白嫖第一个网站</h1>
+        <div class="meta">2026-11-21<span class="sep">|</span>Michaellin0302<span class="sep">|</span>约 4 分钟<span class="sep">|</span>系列:建站记 · 第 3 篇</div>
+      </div>
+
+      <div class="post-body fade-up d2">
+        <p>有了账号,下一步就是把网站架起来。GitHub Pages 最迷人的地方在于:<strong>仓库即网站</strong>,推代码就上线。</p>
+
+        <h2>原理:仓库就是服务器</h2>
+        <p>GitHub 给每个账号一个特殊仓库:<code>用户名.github.io</code>。往里面放一个 <code>index.html</code>,它就会自动变成你的网站:</p>
+        <div class="code-block">
+          <div class="code-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+          <pre><code>仓库:Michaellin0302/Michaellin0302.github.io
+网址:https://michaellin0302.github.io/
+规则:仓库里的 index.html 就是首页,目录结构就是网址结构</code></pre>
+        </div>
+        <p>不用买服务器、不用配环境、不用管 HTTPS——证书都是自动签发的。</p>
+
+        <h2>我的实操步骤</h2>
+        <ol>
+          <li>本地建一个文件夹,写好 <code>index.html</code>(当时第一版只有导航、列表、页脚三个部分)</li>
+          <li>初始化本地 Git 仓库并提交:</li>
+        </ol>
+        <div class="code-block">
+          <div class="code-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+          <pre><code>git init -b main
+git add -A
+git commit -m "Initial commit: 我的第一个网站"</code></pre>
+        </div>
+        <ol start="3">
+          <li>用 GitHub CLI 一条命令创建远程仓库并推送:</li>
+        </ol>
+        <div class="code-block">
+          <div class="code-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+          <pre><code>gh repo create Michaellin0302.github.io --public --source . --push</code></pre>
+        </div>
+        <ol start="4">
+          <li>等 1~2 分钟,Pages 自动构建,网站就上线了</li>
+        </ol>
+
+        <h2>「push 即发布」的工作流</h2>
+        <p>上线之后,日常更新就三步:</p>
+        <div class="code-block">
+          <div class="code-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+          <pre><code>git add -A
+git commit -m "新文章:标题"
+git push        # 约 1 分钟后自动生效</code></pre>
+        </div>
+        <p>这就是为什么我不用任何建站框架——改几个 HTML 文件、推上去,比学一套框架的构建流程直接得多。</p>
+
+        <h2>它的边界:只能托管静态内容</h2>
+        <p>GitHub Pages 只能给静态文件(HTML/CSS/JS/图片)。如果你的网站需要用户登录、数据库、后端 API,就需要真正的服务器。但博客、作品集、文档站这些场景,静态完全够用,而且<strong>永远免费</strong>。</p>
+        <div class="tip-box"><span>⚠️</span><span>国内访问 github.io 时好时坏,解决方案见第 4 篇;绑自己的域名能明显改善,见第 5 篇。</span></div>
+
+        <blockquote>
+          <p>从写下第一行 HTML 到全世界都能访问,只花了几分钟。这就是开源世界最浪漫的地方。</p>
+        </blockquote>
+      </div>
+
+      <nav class="post-nav" style="display:flex;gap:14px;margin-top:36px;flex-wrap:wrap">
+        <a class="back-home" href="register-github.html">← 上一篇:注册 GitHub</a>
+        <a class="back-home" href="cli-and-mirror.html">下一篇:加速填坑 →</a>
+      </nav>
+    </article>
+  </main>
+
+  <!-- 页脚 -->
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-col">
+          <a class="logo" href="../index.html"><span class="logo-dot">M</span><span>michaellin0302</span></a>
+          <p>简洁 · 记录 · 成长 —— 用代码和文字理解世界。纯静态、零依赖,托管在 GitHub Pages,域名 my.midodo.tech。</p>
+        </div>
+        <div class="foot-col">
+          <h4>站点导航</h4>
+          <a href="../index.html">首页</a>
+          <a href="../index.html#posts">文章列表</a>
+          <a href="../index.html#essays">生活随笔</a>
+          <a href="../about.html">关于我</a>
+        </div>
+        <div class="foot-col">
+          <h4>建站记系列</h4>
+          <a href="hello-world.html">① Hello, World!</a>
+          <a href="register-github.html">② 注册 GitHub</a>
+          <a href="first-site.html">③ Pages 建站</a>
+          <a href="cli-and-mirror.html">④ 加速填坑</a>
+          <a href="custom-domain.html">⑤ 绑定域名</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 Michaellin0302 · Powered by <b>GitHub Pages</b></span>
+        <span>Made with <span class="heart">♥</span> &amp; vanilla HTML</span>
+        <a href="#top">回到顶部 ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var bar = document.getElementById("progress");
+      if (!bar) return;
+      function update() {
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+      }
+      addEventListener("scroll", update, { passive: true });
+      update();
+    })();
+  </script>
+</body>
+</html>

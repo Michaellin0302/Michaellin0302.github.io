@@ -7,42 +7,42 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <div class="grid-bg"></div>
-  <div class="glow cyan"></div>
-  <div class="glow purple"></div>
-
   <!-- 导航栏 -->
   <header class="topbar" id="top">
     <div class="container">
-      <a class="logo" href="index.html"><span>michaellin0302</span></a>
+      <a class="logo" href="index.html"><span class="logo-dot">M</span><span>michaellin0302</span></a>
       <a href="index.html">首页</a>
       <a href="index.html#posts">文章</a>
-      <a href="index.html#skills">技能</a>
+      <a href="index.html#essays">随笔</a>
       <a class="active" href="about.html">关于我</a>
       <a class="icon-link" href="https://github.com/Michaellin0302" target="_blank" rel="noopener" aria-label="GitHub">
-        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        <svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
       </a>
     </div>
   </header>
 
   <main class="container">
     <section class="post">
-      <p class="kicker fade-up">$ cat about.md</p>
-      <div class="about-head fade-up d1">
-        <div class="avatar-xl">M</div>
-        <div>
-          <h1>Michaellin0302</h1>
-          <p class="meta">开发者 / 终身学习者 / 折腾爱好者</p>
-          <div class="chips-row">
-            <span class="chip">📍 中国</span>
-            <span class="chip">🎯 目标:持续输出</span>
-            <span class="chip">📮 通过 GitHub 联系</span>
+      <div class="post-hero fade-up">
+        <p class="kicker">$ cat about.md</p>
+        <div class="about-head" style="margin-top:8px">
+          <div class="avatar-xl">M</div>
+          <div>
+            <h1>关于我</h1>
+            <p class="meta">Michaellin0302<span class="sep">|</span>开发者 / 终身学习者 / 折腾爱好者</p>
+            <div class="chips-row">
+              <span class="chip">📍 中国</span>
+              <span class="chip">🎯 目标:持续输出</span>
+              <span class="chip">🌱 正在成长</span>
+              <span class="chip">📮 通过 GitHub 联系</span>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="post-body fade-up d2">
-        <p>你好,欢迎来到我的角落。这里存放我的<strong>学习笔记</strong>、<strong>技术折腾</strong>和一些<strong>想法</strong>。</p>
+        <p>你好,欢迎来到我的角落。</p>
+        <p>这个博客是我的<strong>学习笔记本</strong> + <strong>折腾记录仪</strong>。从注册 GitHub、搭起第一个页面、绑定自己的域名,到页面一次次改版——整个过程都写成文章存在这里。我信奉一句话:</p>
         <blockquote>
           <p>Talk is cheap. Show me the code. — Linus Torvalds</p>
         </blockquote>
@@ -52,43 +52,58 @@
         <div class="bar-row"><span class="bname">Git / GitHub</span><span class="bar"><i data-w="80%"></i></span><span class="bpct">80%</span></div>
         <div class="bar-row"><span class="bname">JavaScript</span><span class="bar"><i data-w="60%"></i></span><span class="bpct">60%</span></div>
         <div class="bar-row"><span class="bname">Python</span><span class="bar"><i data-w="55%"></i></span><span class="bpct">55%</span></div>
+        <p class="c-sub" style="margin-top:6px">↑ 百分比是自评的掌握程度,随学习进度更新。</p>
 
         <h2>折腾时间线</h2>
         <div class="timeline">
           <div class="tl-item">
-            <span class="when">2026-11</span>
+            <span class="when">2026-11-21</span>
+            <h3>注册 GitHub,迈出第一步</h3>
+            <p>有了账号,就有了一切的可能。</p>
+          </div>
+          <div class="tl-item">
+            <span class="when">2026-11-21</span>
             <h3>博客上线 🚀</h3>
             <p>用 GitHub Pages + 手写 HTML/CSS 搭起这个站,零成本、零依赖。</p>
           </div>
           <div class="tl-item">
-            <span class="when">2026-11</span>
+            <span class="when">2026-11-21</span>
             <h3>绑定自定义域名</h3>
-            <p>在阿里云配置解析,my.midodo.tech 正式启用,HTTPS 证书自动签发。</p>
+            <p>在阿里云用 CLI 配置解析,my.midodo.tech 正式启用,HTTPS 证书自动签发。</p>
+          </div>
+          <div class="tl-item">
+            <span class="when">2026-11-21</span>
+            <h3>页面三次改版</h3>
+            <p>极简风 → 暗黑霓虹风 → 明亮现代风。审美是改出来的。</p>
           </div>
           <div class="tl-item">
             <span class="when">接下来</span>
             <h3>持续更新</h3>
-            <p>把学习笔记、踩坑记录都搬上来,让这里越来越厚。</p>
+            <p>把学习笔记、踩坑记录都搬上来,让这个花园越来越茂盛。</p>
           </div>
         </div>
 
         <h2>找到我</h2>
         <div class="link-cards">
           <a class="link-card" href="https://github.com/Michaellin0302" target="_blank" rel="noopener">
-            <span class="lc-icon">@</span>
+            <span class="lc-icon">🐙</span>
             <span>GitHub<br><span class="lc-sub">github.com/Michaellin0302</span></span>
           </a>
           <a class="link-card" href="index.html">
             <span class="lc-icon">📚</span>
             <span>全部文章<br><span class="lc-sub">从第一篇开始读</span></span>
           </a>
+          <a class="link-card" href="index.html#contact">
+            <span class="lc-icon">💬</span>
+            <span>联系我<br><span class="lc-sub">提 Issue 最快</span></span>
+          </a>
         </div>
 
         <h2>这个博客</h2>
-        <p>纯手写 HTML/CSS,无框架、零依赖,托管在 GitHub Pages 上,主题是暗色霓虹风(自研)。写新文章只需要一个文本编辑器。</p>
+        <p>纯手写 HTML/CSS,无框架、零依赖、零外部资源,托管在 GitHub Pages 上,当前主题是明亮现代风。写新文章只需要一个文本编辑器和一条 <code>git push</code>。</p>
       </div>
 
-      <a class="back-home" href="index.html">← cd ..</a>
+      <a class="back-home" href="index.html">← 回到首页</a>
     </section>
   </main>
 
@@ -97,19 +112,20 @@
     <div class="container">
       <div class="foot-grid">
         <div class="foot-col">
-          <a class="logo" href="index.html"><span>michaellin0302</span></a>
-          <p>简洁 · 极客 · 记录 —— 用代码和文字理解世界。纯静态、零依赖,托管在 GitHub Pages,域名 my.midodo.tech。</p>
+          <a class="logo" href="index.html"><span class="logo-dot">M</span><span>michaellin0302</span></a>
+          <p>简洁 · 记录 · 成长 —— 用代码和文字理解世界。纯静态、零依赖,托管在 GitHub Pages,域名 my.midodo.tech。</p>
         </div>
         <div class="foot-col">
           <h4>站点导航</h4>
           <a href="index.html">首页</a>
           <a href="index.html#posts">文章列表</a>
-          <a href="index.html#skills">技能栈</a>
+          <a href="index.html#essays">生活随笔</a>
           <a href="about.html">关于我</a>
         </div>
         <div class="foot-col">
           <h4>最新文章</h4>
           <a href="posts/hello-world.html">Hello, World! 博客开通</a>
+          <a href="posts/custom-domain.html">绑上自己的域名</a>
           <h4 style="margin-top:18px">联系我</h4>
           <a href="https://github.com/Michaellin0302" target="_blank" rel="noopener">GitHub @Michaellin0302</a>
         </div>
