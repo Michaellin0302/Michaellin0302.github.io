@@ -3,238 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Michaellin0302 · 数字花园</title>
+  <title>小林的博客</title>
+  <meta name="description" content="小林的博客 —— 把折腾过的事,写成看得懂的文字。">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <!-- 导航栏 -->
-  <header class="topbar" id="top">
-    <div class="container">
-      <a class="logo" href="index.html"><span class="logo-dot">M</span><span>michaellin0302</span></a>
+  <!-- 顶部:居中文字 Logo + 导航 -->
+  <header class="site-header" id="top">
+    <a class="logo-text" href="index.html">小林的博客</a>
+    <nav class="site-nav">
       <a class="active" href="index.html">首页</a>
-      <a href="#posts">文章</a>
-      <a href="#essays">随笔</a>
+      <a href="posts/hello-world.html">文章</a>
       <a href="about.html">关于我</a>
+      <a href="#contact">联系</a>
       <a class="icon-link" href="https://github.com/Michaellin0302" target="_blank" rel="noopener" aria-label="GitHub">
         <svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
       </a>
-    </div>
+    </nav>
   </header>
 
-  <!-- Banner 大横幅 -->
-  <section class="banner">
-    <div class="container banner-inner">
-      <div class="banner-text">
-        <p class="banner-tag">🚀 欢迎来到我的数字花园</p>
-        <h1 class="headline">把学到的东西,<br>写成看得见的<em>作品</em>。</h1>
-        <p class="typeline">$ <span class="type" id="typewriter"></span><span class="cursor"></span></p>
-        <p class="banner-desc">这里记录我从零开始建站、折腾工具、踩坑填坑的完整过程。没有框架、没有依赖,只有手写的 HTML/CSS 和一个想把事情做好的心。</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#posts">浏览文章 →</a>
-          <a class="btn btn-ghost" href="about.html">关于我</a>
-        </div>
-      </div>
-
-      <div class="profile-card fade-up d1">
-        <div class="pc-head">
-          <div class="avatar-xl">M</div>
-          <div>
-            <h3>Michaellin0302</h3>
-            <p class="pc-role">开发者 / 终身学习者 / 折腾爱好者</p>
-          </div>
-        </div>
-        <div class="chips-row">
-          <span class="chip">📍 中国</span>
-          <span class="chip">🎯 目标:持续输出</span>
-          <span class="chip">🌱 正在成长</span>
-        </div>
-        <div class="pc-stats">
-          <div class="pc-stat"><span class="num" id="stat-posts">0</span><span class="lbl">文章</span></div>
-          <div class="pc-stat"><span class="num" id="stat-notes">3</span><span class="lbl">随笔</span></div>
-          <div class="pc-stat"><span class="num" id="stat-days">0</span><span class="lbl">建站天数</span></div>
-        </div>
-        <a class="pc-btn" href="https://github.com/Michaellin0302" target="_blank" rel="noopener">
-          <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-          在 GitHub 上关注我
-        </a>
-      </div>
+  <!-- 主视觉:大标题打字机 + 口号 -->
+  <section class="hero">
+    <div class="hero-inner fade-up">
+      <h1 class="hero-title"><span id="typeline"></span><span class="cursor"></span></h1>
+      <p class="hero-slogan">把折腾过的事,写成看得懂的文字。</p>
     </div>
-    <a class="scroll-hint" href="#posts" aria-label="向下滚动">▼</a>
+    <a class="scroll-hint" href="#contact" aria-label="向下滚动">▼</a>
   </section>
 
-  <main class="container">
-    <!-- 最新文章 -->
-    <section class="section reveal" id="posts">
-      <div class="section-head">
-        <h2>最新文章</h2>
-        <span class="sub">从零开始建站的全记录</span>
-        <span class="line"></span>
-      </div>
-      <div class="feature-grid">
-        <a class="card-wrap spot" href="posts/hello-world.html">
-          <div class="cover c1"><span>🚀</span></div>
-          <div class="card-body">
-            <span class="date">2026-11-21 · 第 1 篇</span>
-            <h3>Hello, World! 博客开通</h3>
-            <p>博客正式上线。用 GitHub Pages 零成本拥有自己的小天地,以后在这里记录学习和折腾。</p>
-            <div class="tags"><span class="tag g">GitHub Pages</span><span class="tag">建站</span></div>
-          </div>
-        </a>
-        <a class="card-wrap spot" href="posts/register-github.html">
-          <div class="cover c2"><span>🐙</span></div>
-          <div class="card-body">
-            <span class="date">2026-11-21 · 第 2 篇</span>
-            <h3>从零开始:注册我的 GitHub 账号</h3>
-            <p>一切的开始。为什么要注册 GitHub、用户名怎么起才不后悔、验证邮箱的坑。</p>
-            <div class="tags"><span class="tag">GitHub</span><span class="tag g">入门</span></div>
-          </div>
-        </a>
-        <a class="card-wrap spot" href="posts/first-site.html">
-          <div class="cover c4"><span>🌐</span></div>
-          <div class="card-body">
-            <span class="date">2026-11-21 · 第 3 篇</span>
-            <h3>用 GitHub Pages 白嫖第一个网站</h3>
-            <p>仓库即网站:建仓、推代码、自动部署、HTTPS 自动签发,全程零成本。</p>
-            <div class="tags"><span class="tag g">GitHub Pages</span><span class="tag">git</span></div>
-          </div>
-        </a>
-        <a class="card-wrap spot" href="posts/cli-and-mirror.html">
-          <div class="cover c3"><span>🧭</span></div>
-          <div class="card-body">
-            <span class="date">2026-11-21 · 第 4 篇</span>
-            <h3>国内访问 GitHub 的坑与填坑工具</h3>
-            <p>push 三连败之后,我整理了镜像加速、SSH over 443、API 兜底这一套组合拳。</p>
-            <div class="tags"><span class="tag p">加速</span><span class="tag">工具</span></div>
-          </div>
-        </a>
-        <a class="card-wrap spot" href="posts/custom-domain.html">
-          <div class="cover c5"><span>🔗</span></div>
-          <div class="card-body">
-            <span class="date">2026-11-21 · 第 5 篇</span>
-            <h3>绑上自己的域名:blog.midodo.tech</h3>
-            <p>阿里云 CLI 一条命令加解析,证书却迟迟不签?换一个全新子域名十分钟搞定——坑与解法都在这篇。</p>
-            <div class="tags"><span class="tag o">域名</span><span class="tag gr">DNS</span><span class="tag">阿里云</span></div>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- 生活随笔 -->
-    <section class="section reveal" id="essays">
-      <div class="section-head">
-        <h2>生活随笔</h2>
-        <span class="sub">碎碎念,随手记</span>
-        <span class="line"></span>
-      </div>
-      <div class="notes-list">
-        <div class="note-card spot">
-          <span class="n-date">11-21</span>
-          <p class="n-text">域名到手了!blog.midodo.tech 解析生效、全球五地拨测全绿的那一刻,成就感拉满 🎉(my 被卡死了,果断换道)</p>
-        </div>
-        <div class="note-card spot">
-          <span class="n-date">11-21</span>
-          <p class="n-text">第一版页面太素,自己都看不下去,连夜改了两版。折腾到深夜终于满意——原来做产品最难的环节是"过自己这关" 😅</p>
-        </div>
-        <div class="note-card spot">
-          <span class="n-date">11-21</span>
-          <p class="n-text">今天 GitHub 连接被重置了三次,最后靠 GitHub API 直接写提交救场。又学一招:此路不通,换条路走 💡</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 联系 + 友链 -->
-    <section class="section reveal" id="contact">
-      <div class="section-head">
-        <h2>联系我 &amp; 友情链接</h2>
-        <span class="line"></span>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-card spot">
-          <h3>📮 联系我</h3>
-          <p class="c-sub">想交流建站、学习心得,或者单纯打个招呼?</p>
-          <div class="contact-list">
-            <a class="c-item" href="https://github.com/Michaellin0302" target="_blank" rel="noopener">
-              <span class="c-ico">GH</span>
-              <span><span class="c-label">GitHub</span><br><span class="c-value">github.com/Michaellin0302</span></span>
-            </a>
-            <a class="c-item" href="https://github.com/Michaellin0302/Michaellin0302.github.io/issues" target="_blank" rel="noopener">
-              <span class="c-ico">💬</span>
-              <span><span class="c-label">提个 Issue(最快)</span><br><span class="c-value">留言 / 交流 / 申请友链</span></span>
-            </a>
-            <div class="c-item">
-              <span class="c-ico">✉️</span>
-              <span><span class="c-label">邮箱</span><br><span class="c-value">待补充 · 配置后第一时间更新</span></span>
-            </div>
-          </div>
-        </div>
-        <div class="friend-card spot">
-          <h3>🤝 友情链接 &amp; 实用站点</h3>
-          <p class="c-sub">常去的网站,以及虚位以待的朋友们。</p>
-          <div class="friend-grid">
-            <a class="f-item" href="https://pages.github.com/" target="_blank" rel="noopener">
-              <span class="f-ico">📄</span>
-              <span><span class="f-name">GitHub Pages</span><br><span class="f-desc">本站的服务商</span></span>
-            </a>
-            <a class="f-item" href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener">
-              <span class="f-ico">📚</span>
-              <span><span class="f-name">MDN Web 文档</span><br><span class="f-desc">前端必看教科书</span></span>
-            </a>
-            <a class="f-item" href="https://cli.github.com/" target="_blank" rel="noopener">
-              <span class="f-ico">🛠️</span>
-              <span><span class="f-name">GitHub CLI</span><br><span class="f-desc">本站用的命令行工具</span></span>
-            </a>
-            <a class="f-item empty" href="https://github.com/Michaellin0302/Michaellin0302.github.io/issues" target="_blank" rel="noopener">
-              <span class="f-ico">➕</span>
-              <span><span class="f-name">虚位以待</span><br><span class="f-desc">提个 Issue 申请友链</span></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section reveal">
-      <div class="cta-banner">
-        <h3>一起折腾,一起成长 ⚡</h3>
-        <p>从第一篇文章开始,看看这个站是怎么一步步搭起来的。</p>
-        <div class="cta-row center">
-          <a class="btn btn-primary" href="posts/hello-world.html">读第一篇文章</a>
-          <a class="btn btn-ghost" href="about.html">了解站长</a>
-        </div>
-      </div>
-    </section>
-  </main>
+  <!-- 联系方式 -->
+  <section class="contact fade-up d2" id="contact">
+    <p class="kicker">$ contact --email</p>
+    <h2>联系我</h2>
+    <p class="contact-sub">想交流技术、聊聊建站,或者单纯打个招呼,都可以。</p>
+    <a class="mail-card" href="mailto:972053745@qq.com">
+      <span class="mail-ico">✉️</span>
+      <span>972053745@qq.com</span>
+    </a>
+    <p class="contact-note">点击即可直接发邮件</p>
+  </section>
 
   <!-- 页脚 -->
   <footer>
     <div class="container">
-      <div class="foot-grid">
-        <div class="foot-col">
-          <a class="logo" href="index.html"><span class="logo-dot">M</span><span>michaellin0302</span></a>
-          <p>简洁 · 记录 · 成长 —— 用代码和文字理解世界。纯静态、零依赖,托管在 GitHub Pages,域名 blog.midodo.tech。</p>
-        </div>
-        <div class="foot-col">
-          <h4>站点导航</h4>
+      <div class="foot-center">
+        <a class="logo-text sm" href="#top">小林的博客</a>
+        <p class="foot-slogan">记录 · 折腾 · 分享</p>
+        <nav class="foot-links">
           <a href="index.html">首页</a>
-          <a href="#posts">文章列表</a>
-          <a href="#essays">生活随笔</a>
+          <a href="posts/hello-world.html">文章</a>
           <a href="about.html">关于我</a>
+          <a href="mailto:972053745@qq.com">邮箱</a>
+          <a href="https://github.com/Michaellin0302" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+        <div class="foot-bottom center">
+          <span>© 2026 小林的博客 · Powered by <b>GitHub Pages</b></span>
+          <a href="#top">回到顶部 ↑</a>
         </div>
-        <div class="foot-col">
-          <h4>最新文章</h4>
-          <a href="posts/hello-world.html">Hello, World! 博客开通</a>
-          <a href="posts/custom-domain.html">绑上自己的域名</a>
-          <h4 style="margin-top:18px">联系我</h4>
-          <a href="https://github.com/Michaellin0302" target="_blank" rel="noopener">GitHub @Michaellin0302</a>
-        </div>
-      </div>
-      <div class="foot-bottom">
-        <span>© 2026 Michaellin0302 · Powered by <b>GitHub Pages</b></span>
-        <span>Made with <span class="heart">♥</span> &amp; vanilla HTML</span>
-        <a href="#top">回到顶部 ↑</a>
-        <a class="icon-link" href="https://github.com/Michaellin0302" aria-label="GitHub" target="_blank" rel="noopener">
-          <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-        </a>
       </div>
     </div>
   </footer>
@@ -243,62 +68,19 @@
     (function () {
       var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      /* 打字机 */
-      var words = ["学习笔记。", "技术折腾。", "把想法变成代码。", "Stay hungry, stay foolish."];
-      var el = document.getElementById("typewriter");
+      /* 打字机大标题 */
+      var el = document.getElementById("typeline");
+      var text = "你好,我是小林。";
       if (el) {
-        if (reduced) { el.textContent = words[0]; }
+        if (reduced) { el.textContent = text; }
         else {
-          var wi = 0, ci = 0, del = false;
+          var i = 0;
           (function tick() {
-            var w = words[wi];
-            el.textContent = w.slice(0, ci);
-            if (!del && ci < w.length) { ci++; setTimeout(tick, 110); }
-            else if (!del) { del = true; setTimeout(tick, 1600); }
-            else if (ci > 0) { ci--; setTimeout(tick, 45); }
-            else { del = false; wi = (wi + 1) % words.length; setTimeout(tick, 300); }
+            el.textContent = text.slice(0, i);
+            if (i < text.length) { i++; setTimeout(tick, 160); }
           })();
         }
       }
-
-      /* 聚光灯跟随 */
-      document.querySelectorAll(".spot").forEach(function (node) {
-        node.addEventListener("mousemove", function (e) {
-          var r = node.getBoundingClientRect();
-          node.style.setProperty("--mx", (e.clientX - r.left) + "px");
-          node.style.setProperty("--my", (e.clientY - r.top) + "px");
-        });
-      });
-
-      /* 滚动入场 */
-      var revealEls = document.querySelectorAll(".reveal");
-      if ("IntersectionObserver" in window && !reduced) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (en) {
-            if (en.isIntersecting) { en.target.classList.add("visible"); io.unobserve(en.target); }
-          });
-        }, { threshold: .08 });
-        revealEls.forEach(function (n) { io.observe(n); });
-      } else {
-        revealEls.forEach(function (n) { n.classList.add("visible"); });
-      }
-
-      /* 统计数字 */
-      function countUp(node, target) {
-        if (reduced) { node.textContent = target; return; }
-        var t0 = performance.now(), dur = 900;
-        (function frame(t) {
-          var p = Math.min(1, (t - t0) / dur);
-          node.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-          if (p < 1) requestAnimationFrame(frame);
-        })(t0);
-      }
-      var posts = document.querySelectorAll(".feature-grid .card-wrap").length;
-      var notes = document.querySelectorAll(".note-card").length;
-      var days = Math.max(1, Math.floor((Date.now() - new Date(2026, 10, 21).getTime()) / 86400000));
-      countUp(document.getElementById("stat-posts"), posts);
-      countUp(document.getElementById("stat-notes"), notes);
-      countUp(document.getElementById("stat-days"), days);
     })();
   </script>
 </body>

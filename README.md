@@ -19,7 +19,7 @@ git push
 ## 结构
 
 ```
-├── index.html             首页(导航/Banner/文章/随笔/联系友链)
+├── index.html             首页(居中文字 Logo/导航/打字机大标题/口号/联系邮箱)
 ├── about.html             关于(技能进度/时间线/联系)
 ├── posts/                 文章「建站记」系列
 │   ├── hello-world.html      ① 博客开通
