@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello, World! · Michaellin0302</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<main>
+  <article>
+    <p class="prompt"><span class="cmd">$ cat posts/hello-world.md</span></p>
+    <h1>Hello, World! 博客开通</h1>
+    <div class="meta">2026-11-21 · Michaellin0302</div>
+
+    <p>博客正式开通了。</p>
+
+    <h2>这个博客是怎么搭的</h2>
+    <p>没有任何框架,纯手写静态 HTML + CSS,托管在 <strong>GitHub Pages</strong> 上,完全免费:</p>
+    <ul>
+      <li>域名:<code>michaellin0302.github.io</code>(GitHub 白送)</li>
+      <li>服务器:GitHub Pages(白送)</li>
+      <li>代码:<code>git push</code> 即发布,约 1 分钟生效</li>
+    </ul>
+
+    <h2>以后怎么写新文章</h2>
+    <ol>
+      <li>复制 <code>posts/hello-world.html</code> 改名,比如 <code>posts/my-first-post.html</code>,修改标题、日期和正文</li>
+      <li>在 <code>index.html</code> 的文章列表里加一行:</li>
+    </ol>
+    <pre><code>&lt;li&gt;
+  &lt;span class="date"&gt;2026-12-01&lt;/span&gt;
+  &lt;a href="posts/my-first-post.html"&gt;文章标题&lt;/a&gt;
+&lt;/li&gt;</code></pre>
+    <ol start="3">
+      <li>提交推送,自动上线:</li>
+    </ol>
+    <pre><code>git add -A
+git commit -m "新文章"
+git push</code></pre>
+
+    <h2>接下来</h2>
+    <p>慢慢写,把这里当成自己的技术笔记本。</p>
+    <blockquote>
+      <p>Stay hungry, stay foolish.</p>
+    </blockquote>
+  </article>
+
+  <a class="back" href="../index.html">&lt;- cd ..</a>
+
+  <footer>
+    <span>© 2026 Michaellin0302</span>
+    <span>Powered by GitHub Pages</span>
+  </footer>
+</main>
+</body>
+</html>
