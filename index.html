@@ -4,12 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>林志强的奇思妙想</title>
-  <meta name="description" content="林志强的奇思妙想 —— 把折腾过的事,做成看得见的东西。">
-  <meta name="theme-color" content="#f8fafc">
+  <meta name="description" content="林志强的奇思妙想 —— 把折腾过的事，做成看得见的东西。">
+  <meta name="theme-color" content="#0b1120">
   <meta property="og:title" content="林志强的奇思妙想">
-  <meta property="og:description" content="把折腾过的事,做成看得见的东西。">
+  <meta property="og:description" content="把折腾过的事，做成看得见的东西。">
   <meta property="og:url" content="https://midodo.tech/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="林志强的奇思妙想">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://midodo.tech/assets/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="林志强的奇思妙想">
+  <meta name="twitter:description" content="把折腾过的事，做成看得见的东西。">
+  <meta name="twitter:image" content="https://midodo.tech/assets/og-cover.png">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://midodo.tech/">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"林志强","url":"https://midodo.tech/","email":"mailto:972053745@qq.com","description":"林志强的奇思妙想——还在思考要写点什么、做点什么。","homeLocation":{"@type":"Place","name":"福建福州"}}
+  </script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
   <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -22,9 +36,10 @@
   <!-- 主视觉:大标题打字机 + 口号 -->
   <section class="hero">
     <div class="hero-inner fade-up">
-      <h1 class="hero-title"><span id="typeline"></span><span class="cursor"></span></h1>
-      <p class="hero-slogan">把折腾过的事,做成看得见的东西。</p>
+      <h1 class="hero-title"><span id="typeline">你好，我是林志强。</span><span class="cursor"></span></h1>
+      <p class="hero-slogan">把折腾过的事，做成看得见的东西。</p>
     </div>
+    <span class="sys-badge"><i></i>SYS.ONLINE</span>
     <a class="scroll-hint" href="#intro" aria-label="向下滚动">▼</a>
   </section>
 
@@ -33,14 +48,14 @@
     <div class="who-grid">
       <div class="who-text">
         <p class="kicker">$ whoami</p>
-        <p class="intro-text">你好,我是林志强,正在学编程的新人,装备只有 HTML/CSS 和 Git。爱好是<strong>折腾</strong>——从注册 GitHub 到绑上域名,这个站就是折腾过程本身。</p>
-        <p class="intro-text">这里没有宏大叙事,只有刚出炉的小玩意,和如实记录的每一个坑。</p>
+        <p class="intro-text">你好，我是林志强。此刻的状态：还在思考要写点什么、做点什么。</p>
+        <p class="intro-text">不急着产出，先把方向想清楚——想明白了，做就是水到渠成的事。这里放着我的<strong>奇思妙想</strong>，它们正在排队等一个落地顺序。</p>
         <blockquote class="who-quote">
           Talk is cheap. Show me the code.
           <span class="who-quote-by">— Linus Torvalds</span>
         </blockquote>
         <div class="intro-chips">
-          <span class="chip">🌱 编程新手</span>
+          <span class="chip">🤔 构思进行时</span>
           <span class="chip">🛠️ 折腾爱好者</span>
           <span class="chip">🚀 建站进行时</span>
         </div>
@@ -50,12 +65,12 @@
           <div class="avatar-xl">林</div>
           <div>
             <h3>林志强</h3>
-            <p class="pc-role">编程新手 · 终身学习者 · 折腾爱好者</p>
+            <p class="pc-role">构思中 · 终身学习者 · 折腾爱好者</p>
           </div>
         </div>
         <div class="chips-row">
           <span class="chip">📍 福建福州</span>
-          <span class="chip">🎯 目标:持续输出</span>
+          <span class="chip">🎯 目标：持续输出</span>
           <span class="chip">🌱 正在成长</span>
         </div>
         <div class="pc-stats">
@@ -73,20 +88,20 @@
         <div class="bar-row"><span class="bname">JavaScript</span><span class="bar"><i data-w="60%"></i></span><span class="bpct">60%</span></div>
         <div class="bar-row"><span class="bname">Python</span><span class="bar"><i data-w="55%"></i></span><span class="bpct">55%</span></div>
       </div>
-      <p class="c-sub">↑ 百分比是自评的掌握程度,随学习进度更新。</p>
+      <p class="c-sub">↑ 百分比是自评的掌握程度，随学习进度更新。</p>
     </div>
   </section>
 
-  <!-- 第一天 -->
-  <section class="now fade-up d2">
-    <p class="kicker">$ git init</p>
-    <h2>第一天</h2>
-    <p class="now-sub">一切,从这里开始。</p>
+  <!-- 第一天(悬停彩蛋:Always day 1) -->
+  <section class="now fade-up d2" id="day-one">
+    <p class="kicker" id="day-one-kicker">$ git init</p>
+    <h2 id="day-one-title" aria-label="第一天 Always day 1">第一天</h2>
+    <p class="now-sub">一切，从这里开始。</p>
     <div class="timeline">
       <div class="tl-item">
         <span class="when">2026-11-21</span>
-        <h3>注册 GitHub,上线个人博客 🚀</h3>
-        <p>折腾的第一天——从注册账号到个人站上线,同一天完成。</p>
+        <h3>注册 GitHub，上线个人博客 🚀</h3>
+        <p>折腾的第一天——从注册账号到个人站上线，同一天完成。</p>
       </div>
     </div>
   </section>
@@ -95,43 +110,18 @@
   <section class="contact fade-up d2" id="contact">
     <p class="kicker">$ contact --links</p>
     <h2>找到我</h2>
-    <p class="contact-sub">想交流技术、聊聊建站,或者单纯打个招呼,都可以。</p>
-    <div class="link-cards">
-      <a class="link-card" href="mailto:972053745@qq.com">
-        <span class="lc-icon">✉️</span>
-        <span>邮箱<br><span class="lc-sub">972053745@qq.com</span></span>
-      </a>
-      <div class="link-card qr-card" id="qr-card" role="button" tabindex="0" aria-label="查看微信二维码大图">
-        <img class="lc-qr" src="assets/wechat-qr.png" alt="微信二维码" loading="lazy">
-        <span class="qr-label">微信<br><span class="lc-sub">扫码加我 · 点击看大图</span></span>
-      </div>
-    </div>
-    <p class="contact-note">点击任意卡片即可直达</p>
+    <p class="contact-sub">想交流技术、聊聊建站，或者单纯打个招呼，都可以。</p>
+    <a class="mail-big reveal" href="mailto:972053745@qq.com">
+      <span class="mb-ico">✉️</span>
+      <span class="mb-addr">972053745@qq.com</span>
+      <span class="mb-hint">点击卡片，直接给我发邮件</span>
+    </a>
   </section>
 
-  <!-- 页脚:终端加载现场 -->
+  <!-- 页脚:一句渐变流光 slogan 收尾 -->
   <footer>
-    <div class="term reveal">
-      <div class="ft-bar">
-        <span class="ft-dot r"></span><span class="ft-dot y"></span><span class="ft-dot g"></span>
-        <span class="ft-title">zlin@fuzhou:~/dream</span>
-      </div>
-      <div class="ft-body">
-        <p class="ft-line"><span class="ft-prompt">$</span> <span id="ft-typeline"></span><span class="ft-cursor"></span></p>
-        <div class="ft-log" id="ft-log"></div>
-        <div class="ft-progress-row">
-          <div class="ft-progress"><i id="ft-bar"></i></div>
-          <span class="ft-pct" id="ft-pct">0%</span>
-        </div>
-      </div>
-    </div>
+    <p class="foot-end reveal">下一个奇思妙想，正在路上。</p>
   </footer>
-
-  <!-- 二维码灯箱 -->
-  <div class="lightbox" id="qr-lightbox" role="dialog" aria-modal="true" aria-label="微信二维码大图">
-    <img class="lightbox-img" src="assets/wechat-qr.png" alt="微信二维码大图">
-    <p class="lightbox-tip">微信扫码加我 · 点击任意处或按 Esc 关闭</p>
-  </div>
 
   <script>
     (function () {
@@ -140,7 +130,7 @@
       /* 打字机大标题(循环) */
       var el = document.getElementById("typeline");
       if (el) {
-        var lines = ["你好,我是林志强。", "左手奇思,右手妙想。", "1% 灵感,99% 折腾。", "又改版了,这次是认真的。", "不会就学,学了就做。", "灵感 → 代码 → 上线。"];
+        var lines = ["你好，我是林志强。", "左手奇思，右手妙想。", "1% 灵感，99% 折腾。", "又改版了，这次是认真的。", "先想清楚，再动手做。", "灵感 → 代码 → 上线。"];
         if (reduced) { el.textContent = lines[0]; }
         else {
           var wi = 0, ci = 0, del = false;
@@ -162,22 +152,6 @@
         ageEl.textContent = Math.max(1, Math.floor((Date.now() - since.getTime()) / 864e5) + 1);
       }
 
-      /* 二维码灯箱(点卡片开,点任意处/Esc 关) */
-      var lightbox = document.getElementById("qr-lightbox");
-      var qrCard = document.getElementById("qr-card");
-      if (lightbox && qrCard) {
-        var openQr = function () { lightbox.classList.add("show"); };
-        var closeQr = function () { lightbox.classList.remove("show"); };
-        qrCard.addEventListener("click", openQr);
-        qrCard.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openQr(); }
-        });
-        lightbox.addEventListener("click", closeQr);
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape") closeQr();
-        });
-      }
-
       /* 滚动入场(.reveal 进入视口时浮现) */
       var revs = document.querySelectorAll(".reveal");
       if (reduced || !("IntersectionObserver" in window)) {
@@ -194,78 +168,41 @@
         revs.forEach(function (n) { revIo.observe(n); });
       }
 
-      /* 页脚终端:敲命令 → 滚日志 → 进度卡 99% → 清屏,无限循环 */
-      var ftType = document.getElementById("ft-typeline");
-      var ftLog = document.getElementById("ft-log");
-      var ftBar = document.getElementById("ft-bar");
-      var ftPct = document.getElementById("ft-pct");
-      if (ftType && ftLog && ftBar && ftPct) {
-        if (reduced) {
-          ftType.textContent = "折腾,未完待续";
-          ftLog.innerHTML = '<p><span class="ft-time">--:--:--</span> 折腾永不停止 <b class="ft-ok">✓</b></p>';
-          ftBar.style.width = "99%";
-          ftPct.textContent = "99%";
-        } else {
-          var cmds = ["启动 下一个奇思妙想", "make dream", "git push origin 折腾", "deploy --to=现实"];
-          var logPool = ["灵感捕获完成", "编译一次通过", "Bug 修了又长,再修", "正在部署到现实", "域名解析成功", "咖啡余量充足", "奇思 +1", "妙想 +1"];
-          var ci = 0;
-          var pad2 = function (n) { return (n < 10 ? "0" : "") + n; };
-          var ts = function () {
-            var d = new Date();
-            return pad2(d.getHours()) + ":" + pad2(d.getMinutes()) + ":" + pad2(d.getSeconds());
-          };
-          var typeCmd = function (cmd, done) {
-            var i = 0;
-            (function tick() {
-              ftType.textContent = cmd.slice(0, ++i);
-              if (i < cmd.length) { setTimeout(tick, 70); } else { setTimeout(done, 350); }
-            })();
-          };
-          var addLog = function (text, state) {
-            var p = document.createElement("p");
-            p.innerHTML = '<span class="ft-time">' + ts() + '</span> ' + text +
-              ' <b class="' + (state === "ok" ? "ft-ok" : "ft-run") + '">' + (state === "ok" ? "✓" : "…") + "</b>";
-            ftLog.appendChild(p);
-          };
-          var runProgress = function (done) {
-            var v = 0;
-            var iv = setInterval(function () {
-              v += Math.random() * 7 + 2;
-              if (v >= 99) {
-                clearInterval(iv);
-                ftBar.style.width = "99%";
-                ftPct.textContent = "99%";
-                ftBar.parentNode.classList.add("stuck");
-                done();
-              } else {
-                ftBar.style.width = v + "%";
-                ftPct.textContent = Math.floor(v) + "%";
-              }
-            }, 120);
-          };
-          var cycle = function () {
-            ftLog.innerHTML = "";
-            ftBar.style.width = "0%";
-            ftBar.parentNode.classList.remove("stuck");
-            ftPct.textContent = "0%";
-            typeCmd(cmds[ci % cmds.length], function () {
-              var pool = logPool.slice();
-              var picks = [];
-              for (var k = 0; k < 3; k++) {
-                picks.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
-              }
-              addLog(picks[0], "ok");
-              setTimeout(function () { addLog(picks[1], "ok"); }, 420);
-              setTimeout(function () {
-                addLog(picks[2], "run");
-                runProgress(function () {
-                  setTimeout(function () { ci++; cycle(); }, 1800);
-                });
-              }, 840);
-            });
-          };
-          cycle();
-        }
+
+      /* 彩蛋:悬停「第一天」→ 逐字解码出 Always day 1 */
+      var eggSec = document.getElementById("day-one");
+      if (eggSec) {
+        var eggTitle = document.getElementById("day-one-title");
+        var eggKick = document.getElementById("day-one-kicker");
+        var eggBusy = false;
+        var scramble = function (el, target) {
+          var pool = "ABCDEGJKMNPRSTUVWXYZabcdefghikmnprstuvwz01#_";
+          var frame = 0;
+          var iv = setInterval(function () {
+            frame++;
+            var settled = Math.floor(frame / 2);
+            var out = "";
+            for (var i = 0; i < target.length; i++) {
+              out += i < settled ? target.charAt(i) : pool.charAt(Math.floor(Math.random() * pool.length));
+            }
+            el.textContent = out;
+            if (settled >= target.length) { clearInterval(iv); el.textContent = target; }
+          }, 40);
+        };
+        eggSec.addEventListener("pointerenter", function () {
+          if (eggBusy) return;
+          eggBusy = true;
+          eggSec.classList.add("egg-on");
+          if (reduced) { eggTitle.textContent = "Always day 1"; }
+          else { scramble(eggTitle, "Always day 1"); }
+          eggKick.textContent = '$ echo "Always day 1"';
+        });
+        eggSec.addEventListener("pointerleave", function () {
+          eggBusy = false;
+          eggSec.classList.remove("egg-on");
+          eggTitle.textContent = "第一天";
+          eggKick.textContent = "$ git init";
+        });
       }
 
       /* 卡片聚光灯跟随 */
