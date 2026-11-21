@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michaellin0302 · 首页</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="glow cyan"></div>
+  <div class="glow purple"></div>
+
+  <header class="topbar">
+    <div class="container">
+      <a class="logo" href="index.html"><span>michaellin0302</span></a>
+      <a href="index.html">posts</a>
+      <a href="about.html">about</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-text fade-up">
+        <p class="kicker">HELLO WORLD, I AM</p>
+        <h1 class="name">Michaellin0302</h1>
+        <p class="typeline">$ <span class="type" id="typewriter"></span><span class="cursor"></span></p>
+        <div class="badges">
+          <span class="badge"><b>0</b> 依赖</span>
+          <span class="badge"><b>纯静态</b> HTML/CSS</span>
+          <span class="badge">GitHub <b>Pages</b></span>
+          <span class="badge"><b>HTTPS</b> 免费</span>
+        </div>
+      </div>
+
+      <div class="terminal fade-up d2">
+        <div class="term-bar">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="term-title">michaellin0302@blog:~</span>
+        </div>
+        <div class="term-body">
+          <div><span class="t-prompt">$</span> whoami</div>
+          <div class="t-out">Michaellin0302</div>
+          <div><span class="t-prompt">$</span> git init <span class="t-flag">--life</span></div>
+          <div class="t-ok">✔ 已初始化:学习 · 折腾 · 记录</div>
+          <div><span class="t-prompt">$</span> <span class="cursor"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-up d3">
+      <div class="section-head">
+        <h2>最新文章</h2>
+        <span class="line"></span>
+      </div>
+      <div class="posts-grid">
+        <a class="card" href="posts/hello-world.html">
+          <span class="date">2026-11-21</span>
+          <h3>Hello, World! 博客开通</h3>
+          <p>博客正式上线,聊聊这个站是怎么搭起来的,以及以后怎么写文章。</p>
+          <div class="tags">
+            <span class="tag">GitHub Pages</span>
+            <span class="tag g">建站</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot-inner">
+      <span>© 2026 Michaellin0302 · Powered by <b>GitHub Pages</b></span>
+      <span>Made with <span class="heart">♥</span> &amp; vanilla HTML</span>
+      <div class="icon-links">
+        <a class="icon-link" href="https://github.com/Michaellin0302" aria-label="GitHub" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var words = ["学习笔记。", "技术折腾。", "把想法变成代码。", "Stay hungry, stay foolish."];
+      var el = document.getElementById("typewriter");
+      if (!el) return;
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        el.textContent = words[0];
+        return;
+      }
+      var wi = 0, ci = 0, del = false;
+      (function tick() {
+        var w = words[wi];
+        el.textContent = w.slice(0, ci);
+        if (!del && ci < w.length) { ci++; setTimeout(tick, 110); }
+        else if (!del) { del = true; setTimeout(tick, 1600); }
+        else if (ci > 0) { ci--; setTimeout(tick, 45); }
+        else { del = false; wi = (wi + 1) % words.length; setTimeout(tick, 300); }
+      })();
+    })();
+  </script>
+</body>
+</html>

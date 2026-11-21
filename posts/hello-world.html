@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello, World! · Michaellin0302</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="glow cyan"></div>
+  <div class="glow purple"></div>
+
+  <header class="topbar">
+    <div class="container">
+      <a class="logo" href="../index.html"><span>michaellin0302</span></a>
+      <a href="../index.html">posts</a>
+      <a href="../about.html">about</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="post">
+      <p class="kicker fade-up">$ cat posts/hello-world.md</p>
+      <h1 class="fade-up d1">Hello, World! 博客开通</h1>
+      <div class="meta fade-up d1">2026-11-21<span class="sep">|</span>Michaellin0302<span class="sep">|</span>约 2 分钟</div>
+
+      <div class="post-body fade-up d2">
+        <p>博客正式开通了 🎉</p>
+
+        <h2>这个站是怎么搭的</h2>
+        <p>没有任何框架,纯手写静态 HTML + CSS,托管在 <strong>GitHub Pages</strong> 上,完全免费:</p>
+        <ul>
+          <li>域名:<code>michaellin0302.github.io</code>(GitHub 白送)</li>
+          <li>服务器:GitHub Pages(白送)</li>
+          <li>HTTPS 证书:Let's Encrypt 自动签发(还是白送)</li>
+          <li>代码:<code>git push</code> 即发布,约 1 分钟生效</li>
+        </ul>
+
+        <h2>以后怎么写新文章</h2>
+        <ol>
+          <li>复制 <code>posts/hello-world.html</code> 改名,比如 <code>posts/my-first-post.html</code>,修改标题、日期和正文</li>
+          <li>在 <code>index.html</code> 的文章卡片里复制一块 <code>&lt;a class="card"&gt;</code> 并修改</li>
+          <li>提交推送,自动上线:</li>
+        </ol>
+        <div class="code-block">
+          <div class="code-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+          <pre><code>git add -A
+git commit -m "新文章:标题"
+git push</code></pre>
+        </div>
+
+        <h2>接下来</h2>
+        <p>慢慢写,把这里当成自己的技术笔记本。</p>
+        <blockquote>
+          <p>Stay hungry, stay foolish.</p>
+        </blockquote>
+      </div>
+
+      <a class="back-home" href="../index.html">← cd ..</a>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container foot-inner">
+      <span>© 2026 Michaellin0302 · Powered by <b>GitHub Pages</b></span>
+      <span>Made with <span class="heart">♥</span> &amp; vanilla HTML</span>
+    </div>
+  </footer>
+</body>
+</html>
