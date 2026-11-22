@@ -846,7 +846,7 @@ body {
   .sys-badge { top: 10px; right: 10px; font-size: .64rem; padding: 4px 10px; }
 }
 
-/* ===== 彩蛋:第一天 → Always day 1 :机械卷筒,合成器驱动惯性滑停 ===== */
+/* 彩蛋:第一天 → Always day 1 :机械卷筒,合成器驱动惯性滑停 ===== */
 .now.egg-on h2 {
   font-family: var(--mono);
   letter-spacing: 2px;
@@ -859,11 +859,18 @@ body {
   height: 1.3em; line-height: 1.3em;
   letter-spacing: 2px;
 }
-.ad-reel {
+/* 数字层脱离布局流: 槽位只占最终 1 位宽, 滚动内容绝对定位溢出显示。
+   这样三位数滚到一位数时行宽全程不变, "Always day" 不会被重新居中 → 零位移 */
+.ad-slot {
   display: inline-block; vertical-align: top;
-  height: 1.3em; overflow: hidden; letter-spacing: 0;
+  position: relative;
+  width: 1ch; height: 1.3em;
   margin-left: .28em;                /* 数字紧贴 day, 只有一个普通空格的距离 */
-  width: 3ch;                        /* 由 JS 按当前位数收起: 3ch→2ch→1ch */
+}
+.ad-reel {
+  position: absolute; left: 0; top: 0;
+  width: 3ch;                        /* 固定 3ch 容纳 200 这类三位数 */
+  height: 1.3em; overflow: hidden; letter-spacing: 0;
   -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
   mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
 }
@@ -880,14 +887,17 @@ body {
 .ad-strip.ad-run { filter: blur(0); }
 .ad-strip i {
   display: block; height: 1.3em; line-height: 1.3em;
-  width: 3ch;                        /* 每位固定 3ch: 20→100 都不会左右跳 */
-  font-style: normal; text-align: left;
+  width: 3ch;                        /* 每位固定 3ch: 数值位数变化也不会左右跳 */
+  font-style: normal; text-align: left;   /* 左对齐: 数字紧贴 day */
   letter-spacing: 0;
   font-variant-numeric: tabular-nums; color: #fff;
   white-space: nowrap;
 }
-/* 终态: 纯文本, 无栅格无裁剪 */
-.ad-final { color: #fff; letter-spacing: 0; margin-left: .28em; }
+/* 终态: 纯文本, 无栅格无裁剪; 间距与 .ad-slot 一致, 落定时不产生任何位移 */
+.ad-final {
+  color: #fff; letter-spacing: 0;
+  margin-left: .28em;
+}
 .now.egg-on .timeline::before { filter: brightness(1.6) saturate(1.5); }
 .now.egg-on .tl-item .when { color: var(--green); border-color: rgba(52, 211, 153, .5); }
 

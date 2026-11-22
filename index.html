@@ -194,20 +194,6 @@
         var eggKick = document.getElementById("day-one-kicker");
         var eggLive = false;
         var eggTimers = [];
-        /* 反解 cubic-bezier(.12,.92,.12,1): 给定进度 y, 求时间比例 x */
-        var beziTimeFor = function (targetY) {
-          var x1 = .12, y1 = .92, x2 = .12, y2 = 1;
-          var cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
-          var cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
-          var X = function (u) { return ((ax * u + bx) * u + cx) * u; };
-          var Y = function (u) { return ((ay * u + by) * u + cy) * u; };
-          var lo = 0, hi = 1, u = 0.5;
-          for (var i = 0; i < 30; i++) {          /* 二分求贝塞尔参数 u 使 Y(u)=targetY */
-            u = (lo + hi) / 2;
-            if (Y(u) < targetY) lo = u; else hi = u;
-          }
-          return X(u);
-        };
         var eggReset = function () {
           eggLive = false;
           eggTimers.forEach(clearTimeout);
@@ -225,35 +211,24 @@
             eggTitle.innerHTML = '<span class="ad-pre">Always day</span><span class="ad-final">1</span>';
             return;
           }
-          /* 200 → 1 一条连续数字带, 单一 translate3d 位移 → 不会跳字、不会有接缝 */
+          /* 200 → 1 一条连续数字带, 单一 translate3d 位移 → 不会跳字、不会有接缝
+             数字放在 ad-slot 里(固定 1ch 占位), 卷筒绝对定位溢出 → 行宽全程不变,
+             "Always day" 不会被重新居中, 零位移 */
           var FROM = 200, TO = 1, COUNT = FROM - TO + 1;
-          var html = '<span class="ad-pre">Always day</span><span class="ad-reel"><span class="ad-strip">';
+          var html = '<span class="ad-pre">Always day</span>' +
+            '<span class="ad-slot"><span class="ad-reel"><span class="ad-strip">';
           for (var n = FROM; n >= TO; n--) html += "<i>" + n + "</i>";
-          html += "</span></span>";
+          html += "</span></span></span>";
           eggTitle.innerHTML = html;
-          var reel = eggTitle.querySelector(".ad-reel");
           var strip = eggTitle.querySelector(".ad-strip");
-
-          /* 位宽跟随位数(3位→2位→1位): 在数值跨过 100 和 10 的时刻各收一次,
-             宽度自身用 CSS transition 动画 → 不依赖 rAF, 后台也不会失效 */
-          reel.style.width = "3ch";
 
           /* 同步触发过渡: 强制重排 → 起始态落定 → 赋终值(不用 rAF) */
           void strip.offsetHeight;
           strip.style.transform = "translate3d(0," + (-((COUNT - 1) * 1.3)) + "em,0)";
           strip.classList.add("ad-run");
 
-          /* 位宽跟随位数: 显示降到 99 时收成 2ch, 降到 9 时收成 1ch
-             (阈值必须是 99/9 —— 100/10 时数字还是 3/2 位, 收窄会导致裁切) */
-          [[99, "2ch"], [9, "1ch"]].forEach(function (pair) {
-            var at = beziTimeFor((FROM - pair[0]) / (COUNT - 1)) * 3000;
-            eggTimers.push(setTimeout(function () {
-              if (!eggLive) return;
-              reel.style.width = pair[1];
-            }, at));
-          });
-
-          /* 落定: 换成纯文本最终态 —— 没有 3ch 栅格、没有 mask 裁剪, 不可能被裁掉 */
+          /* 落定: 换成纯文本最终态 —— 无栅格无 mask, 不可能被裁掉;
+             因 ad-slot 宽度始终是 1ch, 这一步也不会引起任何位移 */
           eggTimers.push(setTimeout(function () {
             if (!eggLive) return;
             eggTitle.innerHTML = '<span class="ad-pre">Always day</span><span class="ad-final">1</span>';
