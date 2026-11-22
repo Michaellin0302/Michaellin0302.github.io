@@ -857,13 +857,13 @@ body {
 .ad-pre {
   display: inline-block; vertical-align: top;
   height: 1.3em; line-height: 1.3em;
-  margin-right: .32em; letter-spacing: 2px;
+  letter-spacing: 2px;
 }
 .ad-reel {
   display: inline-block; vertical-align: top;
   height: 1.3em; overflow: hidden; letter-spacing: 0;
-  width: 3ch;
-  transition: width .55s cubic-bezier(.25, .9, .3, 1);
+  margin-left: .28em;                /* 数字紧贴 day, 只有一个普通空格的距离 */
+  width: 3ch;                        /* 由 JS 按当前位数收起: 3ch→2ch→1ch */
   -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
   mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
 }
@@ -880,11 +880,14 @@ body {
 .ad-strip.ad-run { filter: blur(0); }
 .ad-strip i {
   display: block; height: 1.3em; line-height: 1.3em;
-  width: 3ch;                        /* 固定宽度 + 右对齐: 个位钉死在同一列, 不左右抖 */
-  font-style: normal; text-align: right; letter-spacing: 0;
+  width: 3ch;                        /* 每位固定 3ch: 20→100 都不会左右跳 */
+  font-style: normal; text-align: left;
+  letter-spacing: 0;
   font-variant-numeric: tabular-nums; color: #fff;
   white-space: nowrap;
 }
+/* 终态: 纯文本, 无栅格无裁剪 */
+.ad-final { color: #fff; letter-spacing: 0; margin-left: .28em; }
 .now.egg-on .timeline::before { filter: brightness(1.6) saturate(1.5); }
 .now.egg-on .tl-item .when { color: var(--green); border-color: rgba(52, 211, 153, .5); }
 
