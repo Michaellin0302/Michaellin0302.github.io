@@ -847,23 +847,32 @@ body {
 }
 
 /* 彩蛋:第一天 → Always day 1 :机械卷筒,合成器驱动惯性滑停 ===== */
+/* 高度锁死(所有状态): 内联块的 1.3em 行盒 + 基线下沉会把行盒撑高 1.27px,
+   下方内容随之上移 → 固定高度 + flex 居中, 悬浮前后行盒尺寸完全一致 */
+#day-one-title {
+  height: 1.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .now.egg-on h2 {
   font-family: var(--mono);
   letter-spacing: 2px;
   color: #fff;
-  line-height: 1.3;
   text-shadow: 0 0 18px rgba(255, 255, 255, .22);
 }
 .ad-pre {
-  display: inline-block; vertical-align: top;
+  display: inline-block;
   height: 1.3em; line-height: 1.3em;
+  vertical-align: baseline;          /* 与「第一天」同为基线对齐, 避免 1.35px 上下浮动 */
   letter-spacing: 2px;
 }
 /* 数字层脱离布局流: 槽位只占最终 1 位宽, 滚动内容绝对定位溢出显示。
    这样三位数滚到一位数时行宽全程不变, "Always day" 不会被重新居中 → 零位移 */
 .ad-slot {
-  display: inline-block; vertical-align: top;
+  display: inline-block;
   position: relative;
+  vertical-align: baseline;
   width: 1ch; height: 1.3em;
   margin-left: .28em;                /* 数字紧贴 day, 只有一个普通空格的距离 */
 }
