@@ -186,36 +186,31 @@
       }
 
 
-      /* 彩蛋:悬停「第一天」→ 逐字解码出 Always day 1 */
+      /* 彩蛋:悬停「第一天」→ Always day,数字快速倒回 1 */
       var eggSec = document.getElementById("day-one");
       if (eggSec) {
         var eggTitle = document.getElementById("day-one-title");
         var eggKick = document.getElementById("day-one-kicker");
-        var eggBusy = false;
-        var scramble = function (el, target) {
-          var pool = "ABCDEGJKMNPRSTUVWXYZabcdefghikmnprstuvwz01#_";
-          var frame = 0;
-          var iv = setInterval(function () {
-            frame++;
-            var settled = Math.floor(frame / 2);
-            var out = "";
-            for (var i = 0; i < target.length; i++) {
-              out += i < settled ? target.charAt(i) : pool.charAt(Math.floor(Math.random() * pool.length));
-            }
-            el.textContent = out;
-            if (settled >= target.length) { clearInterval(iv); el.textContent = target; }
-          }, 40);
+        var eggIv = null;
+        var rollBack = function () {
+          var frames = [999, 500, 250, 120, 60, 30, 15, 8, 4, 2, 1];
+          var i = 0;
+          eggTitle.textContent = "Always day " + frames[0];
+          clearInterval(eggIv);
+          eggIv = setInterval(function () {
+            i++;
+            eggTitle.textContent = "Always day " + frames[i];
+            if (i >= frames.length - 1) { clearInterval(eggIv); eggIv = null; }
+          }, 50);
         };
         eggSec.addEventListener("pointerenter", function () {
-          if (eggBusy) return;
-          eggBusy = true;
           eggSec.classList.add("egg-on");
           if (reduced) { eggTitle.textContent = "Always day 1"; }
-          else { scramble(eggTitle, "Always day 1"); }
+          else { rollBack(); }
           eggKick.textContent = '$ echo "Always day 1"';
         });
         eggSec.addEventListener("pointerleave", function () {
-          eggBusy = false;
+          if (eggIv) { clearInterval(eggIv); eggIv = null; }
           eggSec.classList.remove("egg-on");
           eggTitle.textContent = "第一天";
           eggKick.textContent = "$ git init";
