@@ -186,16 +186,18 @@
       }
 
 
-      /* 彩蛋:悬停「第一天」→ Always day,数字快速滚动,到 5 减速一点点回到 1 */
+      /* 彩蛋:悬停「第一天」→ Always day,数字马达式滚动(惯性衰减),到 5 附近一点点走回 1 */
       var eggSec = document.getElementById("day-one");
       if (eggSec) {
         var eggTitle = document.getElementById("day-one-title");
         var eggKick = document.getElementById("day-one-kicker");
         var eggTimers = [];
+        var eggRaf = 0;
         var eggLive = false;
         var eggReset = function () {
           eggTimers.forEach(clearTimeout);
           eggTimers = [];
+          if (eggRaf) { cancelAnimationFrame(eggRaf); eggRaf = 0; }
           eggLive = false;
           eggSec.classList.remove("egg-on");
           eggTitle.textContent = "第一天";
@@ -211,22 +213,29 @@
             return;
           }
           eggKick.textContent = '$ echo "Always day 1"';
-          /* 快速滚动段:999 一路砸到 5 */
-          var fast = [999, 850, 720, 600, 490, 390, 300, 220, 150, 95, 55, 24, 9, 5];
-          var t = 0;
-          fast.forEach(function (n) {
-            t += 42;
-            eggTimers.push(setTimeout(function () {
+          /* 马达段:惯性衰减 999 → 6,越转越慢(v ∝ 剩余距离,类摩擦减速) */
+          var t0 = performance.now();
+          var tau = 180;
+          var last = -1;
+          var startSlow = function () {
+            /* 减速段:5 之后一点点走回 1,间隔逐渐拉长 */
+            [4, 3, 2, 1].forEach(function (num, i) {
+              eggTimers.push(setTimeout(function () {
+                eggTitle.textContent = "Always day " + num;
+              }, 280 + i * 90));
+            });
+          };
+          var spin = function (now) {
+            var v = 5 + 994 * Math.exp(-(now - t0) / tau);
+            var n = Math.max(5, Math.floor(v));
+            if (n !== last) {
+              last = n;
               eggTitle.textContent = "Always day " + n;
-            }, t));
-          });
-          /* 减速段:5 之后一点点走回 1 */
-          [4, 3, 2, 1].forEach(function (n, i) {
-            t += 330 + i * 60;
-            eggTimers.push(setTimeout(function () {
-              eggTitle.textContent = "Always day " + n;
-            }, t));
-          });
+            }
+            if (n <= 5) { startSlow(); return; }
+            eggRaf = requestAnimationFrame(spin);
+          };
+          eggRaf = requestAnimationFrame(spin);
         });
         eggSec.addEventListener("pointerleave", eggReset);
       }
