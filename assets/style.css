@@ -846,12 +846,44 @@ body {
   .sys-badge { top: 10px; right: 10px; font-size: .64rem; padding: 4px 10px; }
 }
 
-/* ===== 彩蛋:第一天 → Always day 1 ===== */
+/* ===== 彩蛋:第一天 → Always day 1 :机械卷筒,合成器驱动惯性滑停 ===== */
 .now.egg-on h2 {
   font-family: var(--mono);
   letter-spacing: 2px;
   color: #fff;
-  text-shadow: 0 0 18px rgba(255, 255, 255, .25);
+  line-height: 1.3;
+  text-shadow: 0 0 18px rgba(255, 255, 255, .22);
+}
+.ad-pre {
+  display: inline-block; vertical-align: top;
+  height: 1.3em; line-height: 1.3em;
+  margin-right: .32em; letter-spacing: 2px;
+}
+.ad-reel {
+  display: inline-block; vertical-align: top;
+  height: 1.3em; overflow: hidden; letter-spacing: 0;
+  width: 3ch;
+  transition: width .55s cubic-bezier(.25, .9, .3, 1);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
+}
+/* 位移与模糊全部交给合成器: 一次目标值 + 贝塞尔曲线, 不逐帧改样式 */
+.ad-strip {
+  display: block;
+  transform: translate3d(0, 0, 0);
+  filter: blur(1.5px);
+  will-change: transform, filter;
+  transition:
+    transform 3s cubic-bezier(.12, .92, .12, 1),
+    filter 1.15s cubic-bezier(.25, .7, .3, 1);
+}
+.ad-strip.ad-run { filter: blur(0); }
+.ad-strip i {
+  display: block; height: 1.3em; line-height: 1.3em;
+  width: 3ch;                        /* 固定宽度 + 右对齐: 个位钉死在同一列, 不左右抖 */
+  font-style: normal; text-align: right; letter-spacing: 0;
+  font-variant-numeric: tabular-nums; color: #fff;
+  white-space: nowrap;
 }
 .now.egg-on .timeline::before { filter: brightness(1.6) saturate(1.5); }
 .now.egg-on .tl-item .when { color: var(--green); border-color: rgba(52, 211, 153, .5); }

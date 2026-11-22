@@ -186,19 +186,17 @@
       }
 
 
-      /* 彩蛋:悬停「第一天」→ Always day,数字马达式滚动(惯性衰减),到 5 附近一点点走回 1 */
+      /* 彩蛋:悬停「第一天」→ Always day,整条数字卷筒惯性滚动滑停到 1(纯白)
+         位移交给 CSS transition(合成器插值), 不依赖 rAF 逐帧、不逐帧改 filter */
       var eggSec = document.getElementById("day-one");
       if (eggSec) {
         var eggTitle = document.getElementById("day-one-title");
         var eggKick = document.getElementById("day-one-kicker");
-        var eggTimers = [];
-        var eggRaf = 0;
         var eggLive = false;
+        var eggTimer = 0;
         var eggReset = function () {
-          eggTimers.forEach(clearTimeout);
-          eggTimers = [];
-          if (eggRaf) { cancelAnimationFrame(eggRaf); eggRaf = 0; }
           eggLive = false;
+          clearTimeout(eggTimer);
           eggSec.classList.remove("egg-on");
           eggTitle.textContent = "第一天";
           eggKick.textContent = "$ git init";
@@ -207,35 +205,34 @@
           if (eggLive) return;
           eggLive = true;
           eggSec.classList.add("egg-on");
+          eggKick.textContent = '$ echo "Always day 1"';
           if (reduced) {
-            eggTitle.textContent = "Always day 1";
-            eggKick.textContent = '$ echo "Always day 1"';
+            eggTitle.innerHTML = '<span class="ad-pre">Always day</span> <span class="ad-reel" style="width:1ch">' +
+              '<span class="ad-strip ad-run"><i>1</i></span></span>';
             return;
           }
-          eggKick.textContent = '$ echo "Always day 1"';
-          /* 马达段:惯性衰减 999 → 6,越转越慢(v ∝ 剩余距离,类摩擦减速) */
-          var t0 = performance.now();
-          var tau = 180;
-          var last = -1;
-          var startSlow = function () {
-            /* 减速段:5 之后一点点走回 1,间隔逐渐拉长 */
-            [4, 3, 2, 1].forEach(function (num, i) {
-              eggTimers.push(setTimeout(function () {
-                eggTitle.textContent = "Always day " + num;
-              }, 280 + i * 90));
-            });
-          };
-          var spin = function (now) {
-            var v = 5 + 994 * Math.exp(-(now - t0) / tau);
-            var n = Math.max(5, Math.floor(v));
-            if (n !== last) {
-              last = n;
-              eggTitle.textContent = "Always day " + n;
-            }
-            if (n <= 5) { startSlow(); return; }
-            eggRaf = requestAnimationFrame(spin);
-          };
-          eggRaf = requestAnimationFrame(spin);
+          /* 200 → 1 一条连续数字带, 单一 translate3d 位移 → 不可能跳字/有接缝 */
+          var FROM = 200, TO = 1, COUNT = FROM - TO + 1;
+          var html = '<span class="ad-pre">Always day</span> <span class="ad-reel"><span class="ad-strip">';
+          for (var n = FROM; n >= TO; n--) html += "<i>" + n + "</i>";
+          html += "</span></span>";
+          eggTitle.innerHTML = html;
+          var strip = eggTitle.querySelector(".ad-strip");
+
+          /* 同步触发过渡: 读一次 offsetHeight 强制重排 → 起始态落定 → 赋终值
+             (不用 rAF, 后台/节流环境下同样可靠) */
+          void strip.offsetHeight;
+          strip.style.transform = "translate3d(0," + (-((COUNT - 1) * 1.3)) + "em,0)";
+          strip.classList.add("ad-run");
+
+          /* 落定: 换成干净的最终态(也顺带清掉 200 个节点的长条)
+             注意不能只收窄宽度 —— 数字是 3ch 右对齐, 裁到 1ch 会露出空白 */
+          eggTimer = setTimeout(function () {
+            if (!eggLive) return;
+            eggTitle.innerHTML = '<span class="ad-pre">Always day</span> ' +
+              '<span class="ad-reel" style="width:1ch">' +
+              '<span class="ad-strip ad-run"><i>1</i></span></span>';
+          }, 2900);
         });
         eggSec.addEventListener("pointerleave", eggReset);
       }
