@@ -186,35 +186,49 @@
       }
 
 
-      /* 彩蛋:悬停「第一天」→ Always day,数字快速倒回 1 */
+      /* 彩蛋:悬停「第一天」→ Always day,数字快速滚动,到 5 减速一点点回到 1 */
       var eggSec = document.getElementById("day-one");
       if (eggSec) {
         var eggTitle = document.getElementById("day-one-title");
         var eggKick = document.getElementById("day-one-kicker");
-        var eggIv = null;
-        var rollBack = function () {
-          var frames = [999, 500, 250, 120, 60, 30, 15, 8, 4, 2, 1];
-          var i = 0;
-          eggTitle.textContent = "Always day " + frames[0];
-          clearInterval(eggIv);
-          eggIv = setInterval(function () {
-            i++;
-            eggTitle.textContent = "Always day " + frames[i];
-            if (i >= frames.length - 1) { clearInterval(eggIv); eggIv = null; }
-          }, 50);
-        };
-        eggSec.addEventListener("pointerenter", function () {
-          eggSec.classList.add("egg-on");
-          if (reduced) { eggTitle.textContent = "Always day 1"; }
-          else { rollBack(); }
-          eggKick.textContent = '$ echo "Always day 1"';
-        });
-        eggSec.addEventListener("pointerleave", function () {
-          if (eggIv) { clearInterval(eggIv); eggIv = null; }
+        var eggTimers = [];
+        var eggLive = false;
+        var eggReset = function () {
+          eggTimers.forEach(clearTimeout);
+          eggTimers = [];
+          eggLive = false;
           eggSec.classList.remove("egg-on");
           eggTitle.textContent = "第一天";
           eggKick.textContent = "$ git init";
+        };
+        eggSec.addEventListener("pointerenter", function () {
+          if (eggLive) return;
+          eggLive = true;
+          eggSec.classList.add("egg-on");
+          if (reduced) {
+            eggTitle.textContent = "Always day 1";
+            eggKick.textContent = '$ echo "Always day 1"';
+            return;
+          }
+          eggKick.textContent = '$ echo "Always day 1"';
+          /* 快速滚动段:999 一路砸到 5 */
+          var fast = [999, 850, 720, 600, 490, 390, 300, 220, 150, 95, 55, 24, 9, 5];
+          var t = 0;
+          fast.forEach(function (n) {
+            t += 42;
+            eggTimers.push(setTimeout(function () {
+              eggTitle.textContent = "Always day " + n;
+            }, t));
+          });
+          /* 减速段:5 之后一点点走回 1 */
+          [4, 3, 2, 1].forEach(function (n, i) {
+            t += 330 + i * 60;
+            eggTimers.push(setTimeout(function () {
+              eggTitle.textContent = "Always day " + n;
+            }, t));
+          });
         });
+        eggSec.addEventListener("pointerleave", eggReset);
       }
 
       /* 卡片聚光灯跟随 */

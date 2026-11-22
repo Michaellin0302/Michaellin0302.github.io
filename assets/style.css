@@ -850,8 +850,8 @@ body {
 .now.egg-on h2 {
   font-family: var(--mono);
   letter-spacing: 2px;
-  color: var(--green);
-  text-shadow: 0 0 20px rgba(52, 211, 153, .5);
+  color: #fff;
+  text-shadow: 0 0 18px rgba(255, 255, 255, .25);
 }
 .now.egg-on .timeline::before { filter: brightness(1.6) saturate(1.5); }
 .now.egg-on .tl-item .when { color: var(--green); border-color: rgba(52, 211, 153, .5); }
